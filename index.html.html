@@ -1,0 +1,1334 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zero Conditional and First Conditional - Among Us English Mission</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Nunito:wght@400;700;900&family=Cinzel:wght@700;900&display=swap" rel="stylesheet">
+    <!-- Reliable html2canvas and jspdf CDN links for PDF generation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <!-- Canvas Confetti CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        fredoka: ['Fredoka', 'sans-serif'],
+                        nunito: ['Nunito', 'sans-serif'],
+                        certificate: ['Cinzel', 'serif'],
+                    },
+                    colors: {
+                        amongRed: '#C51111',
+                        amongBlue: '#132ED1',
+                        amongGreen: '#117F2D',
+                        amongPink: '#ED54BA',
+                        amongOrange: '#EF7D0D',
+                        amongYellow: '#F5F557',
+                        amongCyan: '#38FEDC',
+                        amongPurple: '#6B2FBC',
+                    },
+                    animation: {
+                        'float': 'float 3s ease-in-out infinite',
+                        'bounce-short': 'bounceShort 0.5s ease infinite alternate',
+                        'pulse-glow': 'pulseGlow 2s infinite',
+                        'title-shimmer': 'titleShimmer 3s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px) rotate(0deg)' },
+                            '50%': { transform: 'translateY(-12px) rotate(2deg)' },
+                        },
+                        bounceShort: {
+                            '0%': { transform: 'translateY(0)' },
+                            '100%': { transform: 'translateY(-8px)' },
+                        },
+                        pulseGlow: {
+                            '0%, 100%': { filter: 'drop-shadow(0 0 8px rgba(56, 254, 220, 0.6))' },
+                            '50%': { filter: 'drop-shadow(0 0 18px rgba(56, 254, 220, 0.9))' },
+                        },
+                        titleShimmer: {
+                            '0%, 100%': { backgroundPosition: '0% 50%' },
+                            '50%': { backgroundPosition: '100% 50%' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Nunito', sans-serif;
+            transition: background-color 0.4s, color 0.4s;
+        }
+
+        .title-font {
+            font-family: 'Fredoka', sans-serif;
+        }
+
+        .gradient-title {
+            background: linear-gradient(90deg, #ED54BA, #38FEDC, #F5F557, #EF7D0D, #ED54BA);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .among-btn {
+            border: 3px solid #000;
+            box-shadow: 0px 4px 0px #000;
+            transition: all 0.15s ease;
+        }
+
+        .among-btn:active {
+            transform: translateY(3px);
+            box-shadow: 0px 1px 0px #000;
+        }
+
+        @media print {
+            body, html {
+                background: #ffffff !important;
+                color: #000000 !important;
+                margin: 0 !important;
+                padding: 0 !important;
+                width: 100vw !important;
+                height: 100vh !important;
+                overflow: hidden !important;
+            }
+            body > *:not(#certificateModal) {
+                display: none !important;
+            }
+            #certificateModal {
+                display: flex !important;
+                position: fixed !important;
+                inset: 0 !important;
+                width: 100vw !important;
+                height: 100vh !important;
+                background: #ffffff !important;
+                margin: 0 !important;
+                padding: 0 !important;
+                border: none !important;
+                box-shadow: none !important;
+                z-index: 9999999 !important;
+                align-items: center !important;
+                justify-content: center !important;
+            }
+            #certificateContent {
+                border: 8px solid #eab308 !important;
+                box-shadow: none !important;
+                margin: auto !important;
+                width: 95% !important;
+                height: 95% !important;
+                background: #ffffff !important;
+                text-align: center !important;
+                border-radius: 0 !important;
+                box-sizing: border-box !important;
+                padding: 2rem !important;
+                display: flex !important;
+                flex-direction: column !important;
+                justify-content: space-between !important;
+            }
+            .no-print {
+                display: none !important;
+            }
+            @page {
+                size: landscape;
+                margin: 0;
+            }
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        .dark ::-webkit-scrollbar-track {
+            background: #1e293b;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #38FEDC;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body class="bg-sky-100 text-slate-800 dark:bg-slate-900 dark:text-slate-100 min-h-screen flex flex-col justify-between overflow-x-hidden w-full m-0 p-0">
+
+    <header class="sticky top-0 z-50 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border-b-4 border-slate-800 dark:border-slate-700 px-4 py-3 shadow-md">
+        <div class="max-w-6xl mx-auto flex flex-wrap justify-between items-center gap-3">
+            
+            <div class="flex items-center space-x-3 cursor-pointer" onclick="switchTab('intro')">
+                <div class="w-10 h-10 bg-amongRed rounded-full border-2 border-black flex items-center justify-center text-white text-xl animate-bounce-short shadow-md">
+                    🚀
+                </div>
+                <div>
+                    <h1 class="text-xl sm:text-2xl font-black title-font gradient-title animate-title-shimmer tracking-wide">
+                        Zero Conditional and First Conditional 🚀
+                    </h1>
+                    <p class="text-xs font-bold text-slate-500 dark:text-slate-400">
+                        Among Us Grammar Space Mission 🛸
+                    </p>
+                </div>
+            </div>
+
+            <div class="flex items-center space-x-3">
+                <button id="ttsToggleBtn" onclick="toggleAudio()" class="among-btn bg-yellow-400 hover:bg-yellow-300 text-slate-900 px-3 py-2 rounded-xl font-bold flex items-center space-x-2 text-sm">
+                    <i id="ttsIcon" class="fas fa-volume-up"></i>
+                    <span id="ttsStatus" class="hidden sm:inline">Voice: ON 🔊</span>
+                </button>
+
+                <div class="relative inline-block text-left">
+                    <button id="themeDropdownBtn" onclick="toggleThemeMenu()" class="among-btn bg-amongCyan hover:bg-teal-300 text-slate-900 px-3 py-2 rounded-xl font-bold flex items-center space-x-2 text-sm">
+                        <span id="themeCurrentIcon">☀️</span>
+                        <span id="themeCurrentText" class="hidden sm:inline">Light Mode</span>
+                        <i class="fas fa-chevron-down text-xs"></i>
+                    </button>
+                    <div id="themeMenu" class="hidden absolute right-0 mt-2 w-44 rounded-xl shadow-xl bg-white dark:bg-slate-800 border-2 border-slate-800 dark:border-cyan-400 z-50 overflow-hidden">
+                        <button onclick="setTheme('light')" class="w-full text-left px-4 py-2 font-bold hover:bg-slate-100 dark:hover:bg-slate-700 flex items-center space-x-2">
+                            <span>☀️</span> <span>Light Mode 🚀</span>
+                        </button>
+                        <button onclick="setTheme('dark')" class="w-full text-left px-4 py-2 font-bold hover:bg-slate-100 dark:hover:bg-slate-700 flex items-center space-x-2">
+                            <span>🌙</span> <span>Dark Mode 🌌</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto w-full px-4 py-6 flex-grow box-border">
+
+        <nav class="flex flex-wrap justify-center gap-2 mb-8">
+            <button onclick="switchTab('intro')" id="tab-intro" class="nav-tab among-btn bg-pink-500 hover:bg-pink-400 text-white font-bold px-4 py-2.5 rounded-2xl text-sm sm:text-base flex items-center space-x-2">
+                <span>🚀</span> <span>Home</span>
+            </button>
+            <button onclick="switchTab('zero')" id="tab-zero" class="nav-tab among-btn bg-slate-200 dark:bg-slate-800 hover:bg-cyan-400 font-bold px-4 py-2.5 rounded-2xl text-sm sm:text-base flex items-center space-x-2">
+                <span>🧪</span> <span>Zero Conditional</span>
+            </button>
+            <button onclick="switchTab('first')" id="tab-first" class="nav-tab among-btn bg-slate-200 dark:bg-slate-800 hover:bg-yellow-400 font-bold px-4 py-2.5 rounded-2xl text-sm sm:text-base flex items-center space-x-2">
+                <span>⚡</span> <span>First Conditional</span>
+            </button>
+            <button onclick="switchTab('quiz')" id="tab-quiz" class="nav-tab among-btn bg-slate-200 dark:bg-slate-800 hover:bg-red-500 hover:text-white font-bold px-4 py-2.5 rounded-2xl text-sm sm:text-base flex items-center space-x-2">
+                <span>🎮</span> <span>Quiz (10 Questions)</span>
+            </button>
+        </nav>
+
+        <div class="grid grid-cols-1 lg:grid-cols-4 gap-6 items-start">
+
+            <div class="lg:col-span-1 bg-white dark:bg-slate-800 rounded-3xl p-5 border-4 border-slate-800 dark:border-cyan-400 shadow-[6px_6px_0px_#1e293b] flex flex-col items-center text-center lg:sticky lg:top-20 z-10 w-full box-border">
+                <div class="text-xs font-black uppercase tracking-wider text-slate-500 dark:text-cyan-300 mb-2">
+                    🤖 Crewmate Assistant
+                </div>
+
+                <div id="crewmateContainer" class="relative w-36 h-44 my-2 animate-float cursor-pointer transition-transform duration-300 hover:scale-105" onclick="interactCrewmate()">
+                    <svg viewBox="0 0 100 120" class="w-full h-full drop-shadow-xl">
+                        <rect x="15" y="40" width="20" height="45" rx="8" id="crewBackpack" fill="#117F2D" stroke="#000" stroke-width="4"/>
+                        <path id="crewBody" d="M 30 35 A 25 25 0 0 1 80 35 L 80 85 A 10 10 0 0 1 70 95 L 65 95 L 65 110 A 6 6 0 0 1 53 110 L 53 95 L 43 95 L 43 110 A 6 6 0 0 1 30 110 L 30 35 Z" fill="#117F2D" stroke="#000" stroke-width="4"/>
+                        <ellipse id="crewVisor" cx="65" cy="42" rx="18" ry="12" fill="#38FEDC" stroke="#000" stroke-width="3"/>
+                        <ellipse cx="68" cy="39" rx="10" ry="5" fill="#FFFFFF" opacity="0.7"/>
+                        <g id="avatarExpression"></g>
+                    </svg>
+                    <div class="absolute -top-3 -right-2 bg-yellow-300 text-black text-xs font-black px-2 py-1 rounded-full border-2 border-black animate-bounce">
+                        Hello! 💬
+                    </div>
+                </div>
+
+                <div class="mt-2 w-full">
+                    <p class="text-xs font-bold mb-2">🎨 Change Color:</p>
+                    <div class="flex justify-center space-x-1">
+                        <button onclick="changeCrewColor('#117F2D')" class="w-6 h-6 rounded-full bg-emerald-600 border border-black hover:scale-110"></button>
+                        <button onclick="changeCrewColor('#C51111')" class="w-6 h-6 rounded-full bg-red-600 border border-black hover:scale-110"></button>
+                        <button onclick="changeCrewColor('#132ED1')" class="w-6 h-6 rounded-full bg-blue-600 border border-black hover:scale-110"></button>
+                        <button onclick="changeCrewColor('#ED54BA')" class="w-6 h-6 rounded-full bg-pink-500 border border-black hover:scale-110"></button>
+                        <button onclick="changeCrewColor('#EF7D0D')" class="w-6 h-6 rounded-full bg-orange-500 border border-black hover:scale-110"></button>
+                    </div>
+                </div>
+
+                <div class="mt-4 bg-slate-100 dark:bg-slate-700/80 p-3 rounded-2xl border-2 border-slate-800 dark:border-slate-600 w-full text-left box-border">
+                    <div class="flex justify-between items-center mb-1">
+                        <span id="avatarName" class="text-xs font-black text-emerald-600 dark:text-emerald-400">Green Crewmate</span>
+                        <button onclick="speakAvatarDialog()" title="Listen to message" class="text-xs text-cyan-600 dark:text-cyan-300 hover:scale-125 transition-transform">
+                            <i class="fas fa-volume-up"></i>
+                        </button>
+                    </div>
+                    <p id="avatarDialog" class="text-xs sm:text-sm font-semibold leading-relaxed">
+                        "Welcome to the spaceship! Let's master conditional sentences together. 🚀"
+                    </p>
+                </div>
+            </div>
+
+            <div class="lg:col-span-3 w-full box-border">
+
+                <!-- INTRO SECTION -->
+                <div id="section-intro" class="tab-content block space-y-6 w-full">
+                    <div class="bg-white dark:bg-slate-800 rounded-3xl p-6 border-4 border-slate-800 dark:border-cyan-400 shadow-[6px_6px_0px_#1e293b] w-full box-border">
+                        <h2 class="text-2xl sm:text-3xl font-black title-font text-pink-500 mb-4 flex items-center gap-2">
+                            <span>🛰️</span> Grammar Mission: Conditionals!
+                        </h2>
+                        <p class="text-base sm:text-lg mb-4 leading-relaxed">
+                            Attention crewmate! 👩‍🚀👨‍🚀 To keep our spaceship running perfectly and catch the impostor, you must master English conditional sentences. Complete the lessons and pass the 10-question quiz to earn your official Spaceship Grammar Certificate! 🏆
+                        </p>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
+                            <div class="bg-teal-50 dark:bg-slate-700/50 p-4 rounded-2xl border-2 border-teal-400">
+                                <h3 class="font-bold text-teal-700 dark:text-teal-300 text-lg mb-2 flex items-center gap-2">
+                                    <span>🧪</span> Zero Conditional
+                                </h3>
+                                <p class="text-sm">Used for <strong>real facts, scientific truths, or general routines</strong>. If A happens, B always happens.</p>
+                                <span class="inline-block mt-3 bg-teal-400 text-slate-900 font-bold text-xs px-2.5 py-1 rounded-full">
+                                    Ex: If you heat ice, it melts. 🧊
+                                </span>
+                            </div>
+
+                            <div class="bg-amber-50 dark:bg-slate-700/50 p-4 rounded-2xl border-2 border-amber-400">
+                                <h3 class="font-bold text-amber-600 dark:text-amber-300 text-lg mb-2 flex items-center gap-2">
+                                    <span>⚡</span> First Conditional
+                                </h3>
+                                <p class="text-sm">Used for <strong>future possibilities or probable consequences</strong> in a specific situation.</p>
+                                <span class="inline-block mt-3 bg-yellow-400 text-slate-900 font-bold text-xs px-2.5 py-1 rounded-full">
+                                    Ex: If I finish tasks, I will win. 🏆
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="bg-purple-100 dark:bg-purple-900/40 p-4 rounded-2xl border-2 border-purple-400 flex items-center space-x-3">
+                            <div class="text-3xl">💡</div>
+                            <div class="text-sm">
+                                <span class="font-bold">Spaceship Tip!</span> Click the speaker buttons <i class="fas fa-volume-up text-purple-600 dark:text-purple-300"></i> in each lesson to listen to natural-sounding English voice narration.
+                            </div>
+                        </div>
+
+                        <div class="mt-6 flex justify-end">
+                            <button onclick="switchTab('zero')" class="among-btn bg-cyan-400 hover:bg-cyan-300 text-black font-black px-6 py-3 rounded-2xl flex items-center gap-2">
+                                <span>Start Zero Conditional Lesson</span> <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ZERO CONDITIONAL SECTION -->
+                <div id="section-zero" class="tab-content hidden space-y-6 w-full">
+                    <div class="bg-white dark:bg-slate-800 rounded-3xl p-6 border-4 border-slate-800 dark:border-cyan-400 shadow-[6px_6px_0px_#1e293b] w-full box-border">
+                        <div class="flex items-center justify-between border-b-2 border-slate-200 dark:border-slate-700 pb-3 mb-4">
+                            <h2 class="text-2xl sm:text-3xl font-black title-font text-teal-500 flex items-center gap-2">
+                                <span>🧪</span> Zero Conditional
+                            </h2>
+                            <button onclick="speakText('Zero Conditional is used for general truths and scientific facts.')" class="among-btn bg-teal-400 hover:bg-teal-300 p-2.5 rounded-xl text-black">
+                                <i class="fas fa-volume-up text-lg"></i>
+                            </button>
+                        </div>
+
+                        <p class="text-base mb-4 leading-relaxed">
+                            The <strong>Zero Conditional</strong> is used to express <em>universal truths, scientific facts, habits, or general rules</em>. 🌍
+                        </p>
+
+                        <div class="bg-slate-900 text-white p-4 rounded-2xl border-2 border-teal-400 my-4 text-center">
+                            <div class="text-xs text-teal-300 uppercase font-bold tracking-wider mb-1">Grammar Structure 📐</div>
+                            <div class="text-lg sm:text-xl font-black title-font text-cyan-300 flex items-center justify-center flex-wrap gap-2">
+                                <span>If / When</span> <span>+</span> <span class="text-yellow-300">Present Simple</span> <span>,</span> <span class="text-emerald-300">Present Simple</span>
+                            </div>
+                        </div>
+
+                        <h3 class="text-lg font-bold mt-6 mb-3 flex items-center gap-2">
+                            <span>📌</span> Practical Spaceship Examples:
+                        </h3>
+
+                        <div class="space-y-3">
+                            <div class="bg-slate-50 dark:bg-slate-700/60 p-4 rounded-2xl border-2 border-slate-200 dark:border-slate-600 flex justify-between items-center gap-3 hover:border-teal-400 transition-colors">
+                                <div>
+                                    <p class="font-black text-teal-600 dark:text-teal-300">
+                                        "If you press the emergency button, a meeting starts." 🚨
+                                    </p>
+                                    <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-300">
+                                        (General rule: pressing the button always triggers an emergency meeting.)
+                                    </p>
+                                </div>
+                                <button onclick="speakText('If you press the emergency button, a meeting starts.')" class="among-btn bg-teal-400 hover:bg-teal-300 p-2.5 rounded-xl text-black shrink-0">
+                                    <i class="fas fa-volume-up"></i>
+                                </button>
+                            </div>
+
+                            <div class="bg-slate-50 dark:bg-slate-700/60 p-4 rounded-2xl border-2 border-slate-200 dark:border-slate-600 flex justify-between items-center gap-3 hover:border-teal-400 transition-colors">
+                                <div>
+                                    <p class="font-black text-teal-600 dark:text-teal-300">
+                                        "If water reaches 100 degrees Celsius, it boils." ♨️
+                                    </p>
+                                    <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-300">
+                                        (Scientific fact: water always boils at 100°C.)
+                                    </p>
+                                </div>
+                                <button onclick="speakText('If water reaches 100 degrees Celsius, it boils.')" class="among-btn bg-teal-400 hover:bg-teal-300 p-2.5 rounded-xl text-black shrink-0">
+                                    <i class="fas fa-volume-up"></i>
+                                </button>
+                            </div>
+
+                            <div class="bg-slate-50 dark:bg-slate-700/60 p-4 rounded-2xl border-2 border-slate-200 dark:border-slate-600 flex justify-between items-center gap-3 hover:border-teal-400 transition-colors">
+                                <div>
+                                    <p class="font-black text-teal-600 dark:text-teal-300">
+                                        "If crewmates do not complete tasks, the team loses." ❌
+                                    </p>
+                                    <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-300">
+                                        (Game mechanic: uncompleted tasks always result in defeat.)
+                                    </p>
+                                </div>
+                                <button onclick="speakText('If crewmates do not complete tasks, the team loses.')" class="among-btn bg-teal-400 hover:bg-teal-300 p-2.5 rounded-xl text-black shrink-0">
+                                    <i class="fas fa-volume-up"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="mt-6 flex justify-between">
+                            <button onclick="switchTab('intro')" class="among-btn bg-slate-300 dark:bg-slate-700 text-black dark:text-white font-bold px-4 py-2.5 rounded-2xl">
+                                ← Previous
+                            </button>
+                            <button onclick="switchTab('first')" class="among-btn bg-yellow-400 hover:bg-yellow-300 text-black font-black px-6 py-2.5 rounded-2xl flex items-center gap-2">
+                                <span>See First Conditional</span> <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FIRST CONDITIONAL SECTION -->
+                <div id="section-first" class="tab-content hidden space-y-6 w-full">
+                    <div class="bg-white dark:bg-slate-800 rounded-3xl p-6 border-4 border-slate-800 dark:border-cyan-400 shadow-[6px_6px_0px_#1e293b] w-full box-border">
+                        <div class="flex items-center justify-between border-b-2 border-slate-200 dark:border-slate-700 pb-3 mb-4">
+                            <h2 class="text-2xl sm:text-3xl font-black title-font text-amber-500 flex items-center gap-2">
+                                <span>⚡</span> First Conditional
+                            </h2>
+                            <button onclick="speakText('First Conditional is used for future possibilities.')" class="among-btn bg-yellow-400 hover:bg-yellow-300 p-2.5 rounded-xl text-black">
+                                <i class="fas fa-volume-up text-lg"></i>
+                            </button>
+                        </div>
+
+                        <p class="text-base mb-4 leading-relaxed">
+                            The <strong>First Conditional</strong> is used to talk about <em>real or very probable situations in the future</em> and their expected outcomes. 🔮
+                        </p>
+
+                        <div class="bg-slate-900 text-white p-4 rounded-2xl border-2 border-yellow-400 my-4 text-center">
+                            <div class="text-xs text-yellow-300 uppercase font-bold tracking-wider mb-1">Grammar Structure 📐</div>
+                            <div class="text-lg sm:text-xl font-black title-font text-yellow-300 flex items-center justify-center flex-wrap gap-2">
+                                <span>If</span> <span>+</span> <span class="text-cyan-300">Present Simple</span> <span>,</span> <span class="text-pink-400">WILL + Verb (base form)</span>
+                            </div>
+                        </div>
+
+                        <h3 class="text-lg font-bold mt-6 mb-3 flex items-center gap-2">
+                            <span>📌</span> Practical Spaceship Examples:
+                        </h3>
+
+                        <div class="space-y-3">
+                            <div class="bg-slate-50 dark:bg-slate-700/60 p-4 rounded-2xl border-2 border-slate-200 dark:border-slate-600 flex justify-between items-center gap-3 hover:border-yellow-400 transition-colors">
+                                <div>
+                                    <p class="font-black text-amber-600 dark:text-amber-300">
+                                        "If I find the impostor, I will report it immediately." 🔍
+                                    </p>
+                                    <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-300">
+                                        (Probable future event and its specific consequence.)
+                                    </p>
+                                </div>
+                                <button onclick="speakText('If I find the impostor, I will report it immediately.')" class="among-btn bg-yellow-400 hover:bg-yellow-300 p-2.5 rounded-xl text-black shrink-0">
+                                    <i class="fas fa-volume-up"></i>
+                                </button>
+                            </div>
+
+                            <div class="bg-slate-50 dark:bg-slate-700/60 p-4 rounded-2xl border-2 border-slate-200 dark:border-slate-600 flex justify-between items-center gap-3 hover:border-yellow-400 transition-colors">
+                                <div>
+                                    <p class="font-black text-amber-600 dark:text-amber-300">
+                                        "If you go to Electrical alone, the impostor will eliminate you." ⚡
+                                    </p>
+                                    <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-300">
+                                        (Future prediction based on a condition.)
+                                    </p>
+                                </div>
+                                <button onclick="speakText('If you go to Electrical alone, the impostor will eliminate you.')" class="among-btn bg-yellow-400 hover:bg-yellow-300 p-2.5 rounded-xl text-black shrink-0">
+                                    <i class="fas fa-volume-up"></i>
+                                </button>
+                            </div>
+
+                            <div class="bg-slate-50 dark:bg-slate-700/60 p-4 rounded-2xl border-2 border-slate-200 dark:border-slate-600 flex justify-between items-center gap-3 hover:border-yellow-400 transition-colors">
+                                <div>
+                                    <p class="font-black text-amber-600 dark:text-amber-300">
+                                        "If we study grammar today, we will pass the spaceship exam." 🎓
+                                    </p>
+                                    <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-300">
+                                        (Future result dependent on today's action.)
+                                    </p>
+                                </div>
+                                <button onclick="speakText('If we study grammar today, we will pass the spaceship exam.')" class="among-btn bg-yellow-400 hover:bg-yellow-300 p-2.5 rounded-xl text-black shrink-0">
+                                    <i class="fas fa-volume-up"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="mt-6 flex justify-between">
+                            <button onclick="switchTab('zero')" class="among-btn bg-slate-300 dark:bg-slate-700 text-black dark:text-white font-bold px-4 py-2.5 rounded-2xl">
+                                ← Previous
+                            </button>
+                            <button onclick="switchTab('quiz')" class="among-btn bg-red-500 hover:bg-red-400 text-white font-black px-6 py-2.5 rounded-2xl flex items-center gap-2">
+                                <span>Try the Quiz! 🎮</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- QUIZ SECTION -->
+                <div id="section-quiz" class="tab-content hidden space-y-6 w-full">
+                    <div class="bg-white dark:bg-slate-800 rounded-3xl p-6 border-4 border-slate-800 dark:border-cyan-400 shadow-[6px_6px_0px_#1e293b] w-full box-border">
+                        
+                        <div class="flex flex-wrap items-center justify-between gap-2 mb-4 border-b-2 border-slate-200 dark:border-slate-700 pb-3">
+                            <div>
+                                <span class="text-xs font-black uppercase text-pink-500 tracking-wider">Spaceship Challenge 🛸</span>
+                                <h2 class="text-2xl font-black title-font">10-Question Quiz</h2>
+                            </div>
+                            <div class="flex items-center space-x-3 text-sm font-black">
+                                <span class="bg-emerald-100 text-emerald-800 dark:bg-emerald-900/60 dark:text-emerald-300 px-3 py-1 rounded-full border border-emerald-500">
+                                    ✅ Correct: <span id="scoreHits">0</span>
+                                </span>
+                                <span class="bg-red-100 text-red-800 dark:bg-red-900/60 dark:text-red-300 px-3 py-1 rounded-full border border-red-500">
+                                    ❌ Mistakes: <span id="scoreMistakes">0</span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="w-full bg-slate-200 dark:bg-slate-700 rounded-full h-3 mb-6 overflow-hidden border border-slate-800">
+                            <div id="quizProgressBar" class="bg-gradient-to-r from-teal-400 to-pink-500 h-3 rounded-full transition-all duration-300" style="width: 10%"></div>
+                        </div>
+
+                        <div id="quizActiveCard" class="w-full">
+                            <div class="flex items-center justify-between mb-2">
+                                <span id="questionNumBadge" class="bg-purple-600 text-white text-xs font-bold px-3 py-1 rounded-full">
+                                    Question 1 / 10
+                                </span>
+                            </div>
+
+                            <div class="bg-slate-100 dark:bg-slate-700/50 p-4 rounded-2xl border-2 border-slate-800 dark:border-slate-600 mb-5 flex items-start justify-between gap-2">
+                                <p id="questionText" class="text-lg font-bold leading-snug">
+                                    Loading question...
+                                </p>
+                                <button id="readQuestionBtn" onclick="readCurrentQuestion()" class="among-btn bg-yellow-400 hover:bg-yellow-300 p-2 rounded-xl text-black shrink-0" title="Listen to question">
+                                    <i class="fas fa-volume-up"></i>
+                                </button>
+                            </div>
+
+                            <div id="optionsContainer" class="grid grid-cols-1 gap-3 mb-6 w-full"></div>
+
+                            <div id="feedbackBox" class="hidden p-4 rounded-2xl border-2 mb-6 w-full box-border">
+                                <div class="flex items-center space-x-2 font-black text-lg mb-1" id="feedbackTitle"></div>
+                                <p id="feedbackText" class="text-sm sm:text-base font-semibold leading-relaxed mb-3"></p>
+                                <button id="readFeedbackBtn" onclick="readCurrentFeedback()" class="among-btn bg-slate-800 text-white dark:bg-slate-200 dark:text-slate-900 px-3 py-1.5 rounded-xl text-xs font-bold flex items-center space-x-2">
+                                    <i class="fas fa-volume-up"></i>
+                                    <span>Listen to Explanation</span>
+                                </button>
+                            </div>
+
+                            <div class="flex justify-end">
+                                <button id="nextQuestionBtn" onclick="nextQuestion()" class="hidden among-btn bg-emerald-500 hover:bg-emerald-400 text-white font-black px-6 py-3 rounded-2xl flex items-center gap-2">
+                                    <span>Next Question</span> <i class="fas fa-arrow-right"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Quiz Final Results Summary -->
+                        <div id="quizSummaryCard" class="hidden text-center py-6 space-y-6 w-full box-border">
+                            <div id="summaryBadge" class="text-6xl animate-bounce">🏆</div>
+                            <h3 id="summaryTitle" class="text-3xl font-black title-font">Mission Accomplished!</h3>
+                            <p id="summaryMessage" class="text-lg font-semibold max-w-lg mx-auto">Evaluating crew report...</p>
+
+                            <div class="grid grid-cols-2 gap-4 max-w-sm mx-auto">
+                                <div class="bg-emerald-100 dark:bg-emerald-900/50 p-4 rounded-2xl border-2 border-emerald-500">
+                                    <div class="text-3xl font-black text-emerald-600 dark:text-emerald-300" id="finalHits">0</div>
+                                    <div class="text-xs font-bold uppercase text-slate-600 dark:text-slate-300">Correct ✅</div>
+                                </div>
+                                <div class="bg-red-100 dark:bg-red-900/50 p-4 rounded-2xl border-2 border-red-500">
+                                    <div class="text-3xl font-black text-red-600 dark:text-red-300" id="finalMistakes">0</div>
+                                    <div class="text-xs font-bold uppercase text-slate-600 dark:text-slate-300">Mistakes ❌</div>
+                                </div>
+                            </div>
+
+                            <div id="certificateUnlockArea" class="hidden my-4 p-4 bg-yellow-100 dark:bg-yellow-900/40 border-2 border-yellow-500 rounded-2xl max-w-md mx-auto">
+                                <p class="font-bold text-yellow-900 dark:text-yellow-200 mb-2">🎉 You earned a Certificate of Approval! 🎓</p>
+                                <button onclick="openCertificate()" class="among-btn bg-yellow-400 hover:bg-yellow-300 text-black font-black px-6 py-2.5 rounded-xl shadow-md">
+                                    Get Certificate 📜
+                                </button>
+                            </div>
+
+                            <div class="pt-4 flex flex-wrap justify-center gap-4">
+                                <button onclick="restartQuiz()" class="among-btn bg-pink-500 hover:bg-pink-400 text-white font-black px-6 py-3 rounded-2xl flex items-center gap-2">
+                                    <i class="fas fa-redo"></i> <span>Retry Quiz (New Questions & Options Order)</span>
+                                </button>
+                                <button onclick="switchTab('zero')" class="among-btn bg-cyan-400 hover:bg-cyan-300 text-black font-black px-6 py-3 rounded-2xl">
+                                    Review Grammar 📖
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </main>
+
+    <div id="certificateModal" class="hidden fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-2 sm:p-6 overflow-y-auto">
+        <div id="certificateContent" class="bg-white text-slate-900 w-full max-w-3xl rounded-3xl p-6 sm:p-8 border-8 sm:border-[10px] border-yellow-500 shadow-2xl relative text-center font-certificate my-auto box-border flex flex-col justify-between items-center min-h-[480px]">
+            
+            <!-- Close button -->
+            <button onclick="closeCertificate()" class="no-print absolute top-3 right-3 text-slate-500 hover:text-slate-900 text-xl font-bold p-2 z-10">
+                <i class="fas fa-times"></i>
+            </button>
+
+            <!-- Certificate Header -->
+            <div class="w-full flex flex-col items-center">
+                <div class="text-3xl sm:text-4xl mb-1">🚀</div>
+                <h2 class="text-2xl sm:text-4xl font-black tracking-widest text-slate-900 uppercase mb-1 text-center">Certificate of Approval</h2>
+                <div class="h-1 w-24 bg-yellow-500 my-1"></div>
+                <p class="text-[10px] sm:text-xs uppercase tracking-widest text-yellow-600 font-bold text-center">Space Grammar Academy • Among Us Mission</p>
+            </div>
+
+            <!-- Certificate Body -->
+            <div class="w-full max-w-xl my-4 flex flex-col items-center">
+                <p class="text-xs sm:text-sm text-slate-600 mb-1 text-center italic">This official certificate is proudly presented to certified space traveler:</p>
+                
+                <div class="my-2 w-full flex justify-center no-print">
+                    <input type="text" id="studentNameInput" value="Dedicated Crewmate" class="text-center text-xl sm:text-3xl font-black border-b-2 border-yellow-500 focus:outline-none focus:border-amber-600 w-full max-w-md py-1 bg-transparent text-slate-800">
+                </div>
+
+                <p class="text-xs sm:text-sm text-slate-700 leading-relaxed text-center px-4">
+                    For successfully completing the 10-question challenge on <strong>Zero Conditional and First Conditional</strong> with excellence, proving mastery of spaceship grammar rules and defeating the impostors!
+                </p>
+            </div>
+
+            <!-- Certificate Footer -->
+            <div class="w-full flex flex-col items-center">
+                <div class="flex justify-between items-end w-full max-w-lg border-t border-slate-300 pt-3 text-xs">
+                    <div class="text-center">
+                        <p class="font-bold text-slate-900 text-xs sm:text-sm" id="certDate"></p>
+                        <p class="text-slate-500 uppercase tracking-wider text-[9px] sm:text-[10px]">Date of Mission</p>
+                    </div>
+                    <div class="text-xl sm:text-2xl">⭐🛸⭐</div>
+                    <div class="text-center">
+                        <p class="font-bold text-slate-900 text-xs sm:text-sm">Commander AI</p>
+                        <p class="text-slate-500 uppercase tracking-wider text-[9px] sm:text-[10px]">Grammar Control Unit</p>
+                    </div>
+                </div>
+
+                <!-- Save Action Button -->
+                <div class="no-print mt-4 flex items-center justify-center gap-3 w-full">
+                    <button onclick="downloadPdfCertificate()" id="downloadPdfBtn" class="among-btn bg-yellow-400 hover:bg-yellow-300 text-slate-900 font-black px-6 py-2.5 rounded-2xl flex items-center justify-center gap-2 text-sm shadow-xl w-full sm:w-auto">
+                        <i class="fas fa-file-pdf text-lg text-slate-900"></i>
+                        <span id="downloadBtnText">Save Certificate (PDF) 📄</span>
+                    </button>
+                </div>
+                <p class="no-print text-[11px] text-slate-500 mt-1 font-sans text-center">
+                    💡 <em>Generates a complete landscape PDF certificate ready to save!</em>
+                </p>
+            </div>
+
+        </div>
+    </div>
+
+    <footer class="bg-white dark:bg-slate-900 border-t-4 border-slate-800 dark:border-slate-700 py-4 text-center text-xs font-bold text-slate-500 dark:text-slate-400 mt-8">
+        <p>🚀 Zero Conditional and First Conditional • Learn English Among Us Style 🛸</p>
+    </footer>
+
+    <script>
+        // --- DATA STRUCTURES: QUIZ QUESTIONS ---
+        const masterQuestions = [
+            {
+                id: 1,
+                question: "🧊 If you _____ ice, it _____.",
+                options: [
+                    { text: "heat / melts", correct: true },
+                    { text: "will heat / melts", correct: false },
+                    { text: "heat / will melt", correct: false }
+                ],
+                type: "Zero Conditional",
+                explanation: "This is a general scientific fact (Zero Conditional). We use Present Simple in both clauses: heat / melts."
+            },
+            {
+                id: 2,
+                question: "🏆 If I _____ my tasks, we _____ the game.",
+                options: [
+                    { text: "finish / will win", correct: true },
+                    { text: "will finish / win", correct: false },
+                    { text: "finishes / will wins", correct: false }
+                ],
+                type: "First Conditional",
+                explanation: "This refers to a real future possibility (First Conditional). Present Simple after 'if' (finish) + 'will win'."
+            },
+            {
+                id: 3,
+                question: "🚨 When you press the emergency button, a meeting _____.",
+                options: [
+                    { text: "starts", correct: true },
+                    { text: "will start", correct: false },
+                    { text: "started", correct: false }
+                ],
+                type: "Zero Conditional",
+                explanation: "Game rules and automatic results use Zero Conditional with Present Simple."
+            },
+            {
+                id: 4,
+                question: "👾 If the impostor _____ you, you will lose your turn.",
+                options: [
+                    { text: "catches", correct: true },
+                    { text: "will catch", correct: false },
+                    { text: "caught", correct: false }
+                ],
+                type: "First Conditional",
+                explanation: "In First Conditional, the 'if' clause takes Present Simple (catches) for 3rd person singular."
+            },
+            {
+                id: 5,
+                question: "♨️ If water reaches 100°C, it _____.",
+                options: [
+                    { text: "boils", correct: true },
+                    { text: "will boil", correct: false },
+                    { text: "is boiling", correct: false }
+                ],
+                type: "Zero Conditional",
+                explanation: "Scientific truths always use Zero Conditional with Present Simple."
+            },
+            {
+                id: 6,
+                question: "🔍 If we _____ together, we will find the impostor.",
+                options: [
+                    { text: "work", correct: true },
+                    { text: "will work", correct: false },
+                    { text: "worked", correct: false }
+                ],
+                type: "First Conditional",
+                explanation: "Present simple 'work' follows 'if' for future predictions in First Conditional."
+            },
+            {
+                id: 7,
+                question: "😴 If you don't sleep, you _____ tired.",
+                options: [
+                    { text: "get", correct: true },
+                    { text: "will got", correct: false },
+                    { text: "getting", correct: false }
+                ],
+                type: "Zero Conditional",
+                explanation: "General biological rule: if you don't sleep, you get tired (Present Simple)."
+            },
+            {
+                id: 8,
+                question: "🌧️ If it rains tomorrow, we _____ in the spaceship.",
+                options: [
+                    { text: "will stay", correct: true },
+                    { text: "stay", correct: false },
+                    { text: "stayed", correct: false }
+                ],
+                type: "First Conditional",
+                explanation: "Specific future situation (tomorrow): 'will stay'."
+            },
+            {
+                id: 9,
+                question: "🔥 When metal gets hot, it _____.",
+                options: [
+                    { text: "expands", correct: true },
+                    { text: "will expand", correct: false },
+                    { text: "expanded", correct: false }
+                ],
+                type: "Zero Conditional",
+                explanation: "Scientific fact: metal expands when hot."
+            },
+            {
+                id: 10,
+                question: "📢 If I see the impostor, I _____ the alarm.",
+                options: [
+                    { text: "will trigger", correct: true },
+                    { text: "trigger", correct: false },
+                    { text: "triggered", correct: false }
+                ],
+                type: "First Conditional",
+                explanation: "Action dependent on future condition: 'will trigger'."
+            }
+        ];
+
+        let activeQuizQuestions = [];
+        let currentQuestionIndex = 0;
+        let scoreHits = 0;
+        let scoreMistakes = 0;
+        let questionAnswered = false;
+
+        // Shuffle helper function (Fisher-Yates)
+        function shuffleArray(array) {
+            const arr = [...array];
+            for (let i = arr.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [arr[i], arr[j]] = [arr[j], arr[i]];
+            }
+            return arr;
+        }
+
+        function prepareShuffledQuiz() {
+            // Shuffle both questions order and option choices order
+            activeQuizQuestions = shuffleArray(masterQuestions).map(q => {
+                return {
+                    ...q,
+                    options: shuffleArray(q.options)
+                };
+            });
+        }
+
+        // --- AUDIO SOUND EFFECTS ENGINE ---
+        let audioCtx = null;
+        let ttsEnabled = true;
+
+        function initAudio() {
+            if (!audioCtx) {
+                const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+                if (AudioContextClass) {
+                    audioCtx = new AudioContextClass();
+                }
+            }
+            if (audioCtx && audioCtx.state === 'suspended') {
+                audioCtx.resume();
+            }
+        }
+
+        function playSound(type) {
+            try {
+                initAudio();
+                if (!audioCtx) return;
+
+                const osc = audioCtx.createOscillator();
+                const gain = audioCtx.createGain();
+                osc.connect(gain);
+                gain.connect(audioCtx.destination);
+
+                const now = audioCtx.currentTime;
+
+                if (type === 'click') {
+                    osc.type = 'sine';
+                    osc.frequency.setValueAtTime(400, now);
+                    osc.frequency.exponentialRampToValueAtTime(800, now + 0.05);
+                    gain.gain.setValueAtTime(0.1, now);
+                    gain.gain.linearRampToValueAtTime(0.01, now + 0.05);
+                    osc.start(now);
+                    osc.stop(now + 0.05);
+                } else if (type === 'correct') {
+                    osc.type = 'triangle';
+                    osc.frequency.setValueAtTime(523.25, now);
+                    osc.frequency.setValueAtTime(659.25, now + 0.08);
+                    osc.frequency.setValueAtTime(783.99, now + 0.16);
+                    osc.frequency.setValueAtTime(1046.50, now + 0.24);
+                    gain.gain.setValueAtTime(0.15, now);
+                    gain.gain.linearRampToValueAtTime(0.01, now + 0.4);
+                    osc.start(now);
+                    osc.stop(now + 0.4);
+                } else if (type === 'wrong') {
+                    osc.type = 'sawtooth';
+                    osc.frequency.setValueAtTime(180, now);
+                    osc.frequency.setValueAtTime(140, now + 0.15);
+                    gain.gain.setValueAtTime(0.2, now);
+                    gain.gain.linearRampToValueAtTime(0.01, now + 0.35);
+                    osc.start(now);
+                    osc.stop(now + 0.35);
+                } else if (type === 'theme') {
+                    osc.type = 'sine';
+                    osc.frequency.setValueAtTime(300, now);
+                    osc.frequency.exponentialRampToValueAtTime(600, now + 0.1);
+                    gain.gain.setValueAtTime(0.08, now);
+                    gain.gain.linearRampToValueAtTime(0.01, now + 0.1);
+                    osc.start(now);
+                    osc.stop(now + 0.1);
+                }
+            } catch (e) {
+                console.log("Audio play error", e);
+            }
+        }
+
+        // --- SPEECH SYNTHESIS ENGINE (TTS) ---
+        function speakText(text) {
+            if (!ttsEnabled) return;
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.cancel();
+                const cleanText = text.replace(/[\u{1F600}-\u{1F64F}\u{1F300}-\u{1F5FF}\u{1F680}-\u{1F6FF}\u{2600}-\u{26FF}\u{2700}-\u{27BF}]/gu, '');
+                const utterance = new SpeechSynthesisUtterance(cleanText);
+                utterance.lang = 'en-US';
+                utterance.rate = 0.95;
+                utterance.pitch = 1.05;
+
+                const voices = window.speechSynthesis.getVoices();
+                const engVoice = voices.find(v => v.lang.includes('en') && (v.name.includes('Natural') || v.name.includes('Google') || v.name.includes('Samantha')));
+                if (engVoice) utterance.voice = engVoice;
+
+                window.speechSynthesis.speak(utterance);
+            }
+        }
+
+        function toggleAudio() {
+            ttsEnabled = !ttsEnabled;
+            const statusSpan = document.getElementById('ttsStatus');
+            const icon = document.getElementById('ttsIcon');
+            
+            if (ttsEnabled) {
+                statusSpan.textContent = 'Voice: ON 🔊';
+                icon.className = 'fas fa-volume-up';
+                speakText('Voice synthesis activated.');
+            } else {
+                statusSpan.textContent = 'Voice: OFF 🔇';
+                icon.className = 'fas fa-volume-mute';
+                if ('speechSynthesis' in window) window.speechSynthesis.cancel();
+            }
+            playSound('click');
+        }
+
+        // --- THEME SWITCHER (LIGHT / DARK MODE) ---
+        function toggleThemeMenu() {
+            playSound('click');
+            const menu = document.getElementById('themeMenu');
+            menu.classList.toggle('hidden');
+        }
+
+        function setTheme(mode) {
+            playSound('theme');
+            const html = document.documentElement;
+            const currentIcon = document.getElementById('themeCurrentIcon');
+            const currentText = document.getElementById('themeCurrentText');
+            document.getElementById('themeMenu').classList.add('hidden');
+
+            if (mode === 'dark') {
+                html.classList.add('dark');
+                html.classList.remove('light');
+                currentIcon.textContent = '🌙';
+                currentText.textContent = 'Dark Mode';
+            } else {
+                html.classList.remove('dark');
+                html.classList.add('light');
+                currentIcon.textContent = '☀️';
+                currentText.textContent = 'Light Mode';
+            }
+        }
+
+        // --- NAVIGATION TABS ---
+        function switchTab(tabId) {
+            playSound('click');
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+            document.querySelectorAll('.nav-tab').forEach(btn => {
+                btn.classList.remove('bg-pink-500', 'text-white', 'bg-cyan-400', 'bg-yellow-400', 'bg-red-500');
+                btn.classList.add('bg-slate-200', 'dark:bg-slate-800');
+            });
+
+            const selectedContent = document.getElementById('section-' + tabId);
+            if (selectedContent) selectedContent.classList.remove('hidden');
+
+            const activeBtn = document.getElementById('tab-' + tabId);
+            if (activeBtn) {
+                activeBtn.classList.remove('bg-slate-200', 'dark:bg-slate-800');
+                if (tabId === 'intro') activeBtn.classList.add('bg-pink-500', 'text-white');
+                if (tabId === 'zero') activeBtn.classList.add('bg-cyan-400', 'text-black');
+                if (tabId === 'first') activeBtn.classList.add('bg-yellow-400', 'text-black');
+                if (tabId === 'quiz') activeBtn.classList.add('bg-red-500', 'text-white');
+            }
+
+            if (tabId === 'intro') {
+                setAvatarExpression('normal');
+                updateAvatarDialog("Welcome! Click any tab to learn or take the 10-question quiz! 🚀");
+            } else if (tabId === 'zero') {
+                setAvatarExpression('happy');
+                updateAvatarDialog("Zero Conditional: Used for facts that are ALWAYS true! 🧪");
+            } else if (tabId === 'first') {
+                setAvatarExpression('happy');
+                updateAvatarDialog("First Conditional: Used for future possibilities! ⚡");
+            } else if (tabId === 'quiz') {
+                setAvatarExpression('normal');
+                updateAvatarDialog("Good luck on the quiz! Select the correct option for each question. 🎮");
+            }
+        }
+
+        // --- AVATAR & CREWMATE LOGIC ---
+        const crewmateColors = {
+            '#117F2D': {
+                name: 'Green Crewmate',
+                phrase: 'Green here! Keep calm, follow scientific facts, and finish your tasks! 🧪'
+            },
+            '#C51111': {
+                name: 'Red Crewmate',
+                phrase: 'I am definitely NOT the impostor! If you don\'t believe me, test my grammar! 📮'
+            },
+            '#132ED1': {
+                name: 'Blue Crewmate',
+                phrase: 'Blue reporting for duty! I will help you master conditional sentences at warp speed! 🚀'
+            },
+            '#ED54BA': {
+                name: 'Pink Crewmate',
+                phrase: 'Pink looking fabulous! Studying English makes our space mission so much fun! 💖'
+            },
+            '#EF7D0D': {
+                name: 'Orange Crewmate',
+                phrase: 'Orange present! If I fix the electrical wiring, we will secure a total victory! ⚡'
+            }
+        };
+
+        function changeCrewColor(hex) {
+            playSound('click');
+            document.getElementById('crewBody').setAttribute('fill', hex);
+            document.getElementById('crewBackpack').setAttribute('fill', hex);
+            const nameEl = document.getElementById('avatarName');
+            
+            if (crewmateColors[hex]) {
+                const character = crewmateColors[hex];
+                if (nameEl) nameEl.textContent = character.name;
+                updateAvatarDialog(character.phrase);
+                speakText(character.phrase);
+            }
+        }
+
+        function setAvatarExpression(expr) {
+            const group = document.getElementById('avatarExpression');
+            if (!group) return;
+            group.innerHTML = '';
+
+            if (expr === 'happy') {
+                group.innerHTML = `<path d="M 58 42 Q 65 37 72 42" stroke="#000" stroke-width="3" fill="none" stroke-linecap="round"/>`;
+            } else if (expr === 'sad') {
+                group.innerHTML = `<path d="M 58 45 Q 65 49 72 45" stroke="#000" stroke-width="3" fill="none" stroke-linecap="round"/>
+                                   <circle cx="75" cy="46" r="2" fill="#38FEDC"/>`;
+            } else if (expr === 'impostor') {
+                group.innerHTML = `<ellipse cx="65" cy="42" rx="18" ry="12" fill="#C51111" stroke="#000" stroke-width="3"/>
+                                   <path d="M 55 38 L 75 46" stroke="#000" stroke-width="3"/>`;
+            }
+        }
+
+        function updateAvatarDialog(msg) {
+            const el = document.getElementById('avatarDialog');
+            if (el) el.textContent = `"${msg}"`;
+        }
+
+        function speakAvatarDialog() {
+            const el = document.getElementById('avatarDialog');
+            if (el) speakText(el.textContent);
+        }
+
+        function interactCrewmate() {
+            playSound('click');
+            const tips = [
+                "Remember: Zero Conditional uses Present Simple + Present Simple!",
+                "First Conditional uses If + Present Simple, then WILL + verb!",
+                "Press emergency meeting buttons to share facts! 🚨",
+                "Complete all 10 questions to earn your official Certificate! 📜"
+            ];
+            const randTip = tips[Math.floor(Math.random() * tips.length)];
+            updateAvatarDialog(randTip);
+            speakText(randTip);
+        }
+
+        // --- QUIZ ENGINE LOGIC ---
+        function loadQuestion() {
+            questionAnswered = false;
+            const q = activeQuizQuestions[currentQuestionIndex];
+            
+            document.getElementById('questionNumBadge').textContent = `Question ${currentQuestionIndex + 1} / 10`;
+            document.getElementById('questionText').textContent = q.question;
+
+            // Progress bar
+            const pct = ((currentQuestionIndex + 1) / 10) * 100;
+            document.getElementById('quizProgressBar').style.width = pct + '%';
+
+            // Hide feedback and next button
+            document.getElementById('feedbackBox').classList.add('hidden');
+            document.getElementById('nextQuestionBtn').classList.add('hidden');
+
+            // Render options
+            const container = document.getElementById('optionsContainer');
+            container.innerHTML = '';
+
+            const optionLabels = ['A', 'B', 'C'];
+            q.options.forEach((opt, idx) => {
+                const btn = document.createElement('button');
+                btn.className = 'quiz-opt-btn among-btn bg-white dark:bg-slate-700 hover:bg-cyan-100 dark:hover:bg-slate-600 text-left p-4 rounded-2xl font-bold border-2 border-slate-800 dark:border-slate-600 flex items-center justify-between transition-all w-full';
+                btn.onclick = () => selectOption(idx, opt.correct, btn);
+
+                btn.innerHTML = `
+                    <div class="flex items-center space-x-3">
+                        <span class="w-8 h-8 rounded-full bg-slate-200 dark:bg-slate-800 text-slate-800 dark:text-white flex items-center justify-center font-black text-sm border border-black">${optionLabels[idx]}</span>
+                        <span class="text-base sm:text-lg">${opt.text}</span>
+                    </div>
+                    <i class="opt-icon far fa-circle text-slate-400 text-xl"></i>
+                `;
+                container.appendChild(btn);
+            });
+
+            speakText(`Question ${currentQuestionIndex + 1}. ${q.question}`);
+        }
+
+        function readCurrentQuestion() {
+            const q = activeQuizQuestions[currentQuestionIndex];
+            speakText(q.question);
+        }
+
+        function selectOption(index, isCorrect, selectedBtn) {
+            if (questionAnswered) return;
+            questionAnswered = true;
+
+            const q = activeQuizQuestions[currentQuestionIndex];
+            const allOptionBtns = document.querySelectorAll('.quiz-opt-btn');
+
+            allOptionBtns.forEach(b => {
+                b.disabled = true;
+                b.classList.add('opacity-70', 'cursor-not-allowed');
+            });
+
+            const feedbackBox = document.getElementById('feedbackBox');
+            const feedbackTitle = document.getElementById('feedbackTitle');
+            const feedbackText = document.getElementById('feedbackText');
+
+            if (isCorrect) {
+                playSound('correct');
+                scoreHits++;
+                document.getElementById('scoreHits').textContent = scoreHits;
+
+                selectedBtn.classList.remove('bg-white', 'dark:bg-slate-700', 'opacity-70');
+                selectedBtn.classList.add('bg-emerald-400', 'text-slate-900', 'border-emerald-700');
+                selectedBtn.querySelector('.opt-icon').className = 'fas fa-check-circle text-slate-900 text-2xl';
+
+                feedbackBox.className = 'p-4 rounded-2xl border-2 mb-6 w-full box-border bg-emerald-100 dark:bg-emerald-900/50 border-emerald-500 text-emerald-900 dark:text-emerald-200 block';
+                feedbackTitle.innerHTML = '<span>✅ Correct Crewmate!</span>';
+                feedbackText.textContent = q.explanation;
+
+                setAvatarExpression('happy');
+                updateAvatarDialog("Great job! Correct answer! 🚀");
+                speakText("Correct! " + q.explanation);
+            } else {
+                playSound('wrong');
+                scoreMistakes++;
+                document.getElementById('scoreMistakes').textContent = scoreMistakes;
+
+                selectedBtn.classList.remove('bg-white', 'dark:bg-slate-700', 'opacity-70');
+                selectedBtn.classList.add('bg-red-400', 'text-slate-900', 'border-red-700');
+                selectedBtn.querySelector('.opt-icon').className = 'fas fa-times-circle text-slate-900 text-2xl';
+
+                // Highlight actual correct button
+                q.options.forEach((opt, idx) => {
+                    if (opt.correct) {
+                        allOptionBtns[idx].classList.remove('opacity-70');
+                        allOptionBtns[idx].classList.add('bg-emerald-200', 'dark:bg-emerald-800', 'border-emerald-600');
+                    }
+                });
+
+                feedbackBox.className = 'p-4 rounded-2xl border-2 mb-6 w-full box-border bg-red-100 dark:bg-red-900/50 border-red-500 text-red-900 dark:text-red-200 block';
+                feedbackTitle.innerHTML = '<span>❌ Impostor Sabotage!</span>';
+                feedbackText.textContent = q.explanation;
+
+                setAvatarExpression('sad');
+                updateAvatarDialog("Oops! That was incorrect. Read the explanation carefully.");
+                speakText("Incorrect. " + q.explanation);
+            }
+
+            document.getElementById('nextQuestionBtn').classList.remove('hidden');
+        }
+
+        function readCurrentFeedback() {
+            const explanation = activeQuizQuestions[currentQuestionIndex].explanation;
+            speakText(explanation);
+        }
+
+        function nextQuestion() {
+            playSound('click');
+            currentQuestionIndex++;
+            if (currentQuestionIndex < activeQuizQuestions.length) {
+                loadQuestion();
+            } else {
+                finishQuiz();
+            }
+        }
+
+        // --- COLORFUL CONFETTI FIREWORKS TRIGGER ---
+        function triggerSuccessConfetti() {
+            if (typeof confetti === 'function') {
+                // Multi-burst fireworks celebration
+                const duration = 3 * 1000;
+                const animationEnd = Date.now() + duration;
+                const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 9999 };
+
+                function randomInRange(min, max) {
+                    return Math.random() * (max - min) + min;
+                }
+
+                const interval = setInterval(function() {
+                    const timeLeft = animationEnd - Date.now();
+                    if (timeLeft <= 0) {
+                        return clearInterval(interval);
+                    }
+                    const particleCount = 50 * (timeLeft / duration);
+                    confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 } }));
+                    confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 } }));
+                }, 250);
+            }
+        }
+
+        function finishQuiz() {
+            document.getElementById('quizActiveCard').classList.add('hidden');
+            document.getElementById('quizSummaryCard').classList.remove('hidden');
+
+            document.getElementById('finalHits').textContent = scoreHits;
+            document.getElementById('finalMistakes').textContent = scoreMistakes;
+
+            const summaryBadge = document.getElementById('summaryBadge');
+            const summaryTitle = document.getElementById('summaryTitle');
+            const summaryMessage = document.getElementById('summaryMessage');
+            const certUnlock = document.getElementById('certificateUnlockArea');
+
+            if (scoreHits >= 8) {
+                playSound('correct');
+                summaryBadge.textContent = '🏆';
+                summaryTitle.textContent = 'Mission Victory!';
+                summaryMessage.textContent = `Outstanding performance! You scored ${scoreHits}/10. You have proven complete mastery of Zero and First Conditionals!`;
+                certUnlock.classList.remove('hidden');
+                setAvatarExpression('happy');
+                updateAvatarDialog("Congratulations! You passed the mission! Get your Certificate! 📜");
+                
+                // Trigger colorful confetti fireworks!
+                triggerSuccessConfetti();
+            } else {
+                playSound('wrong');
+                summaryBadge.textContent = '👾';
+                summaryTitle.textContent = 'Defeat - Impostor Win!';
+                summaryMessage.textContent = `You scored ${scoreHits}/10. You need at least 8 correct answers to pass the spaceship grammar exam. Try again!`;
+                certUnlock.classList.add('hidden');
+                setAvatarExpression('impostor');
+                updateAvatarDialog("The impostor sabotaged the test! Review the rules and try again!");
+            }
+        }
+
+        // --- CERTIFICATE GENERATION & PRINT / PDF DOWNLOAD ---
+        function openCertificate() {
+            playSound('click');
+            const dateStr = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+            document.getElementById('certDate').textContent = dateStr;
+            document.getElementById('certificateModal').classList.remove('hidden');
+        }
+
+        function closeCertificate() {
+            playSound('click');
+            document.getElementById('certificateModal').classList.add('hidden');
+        }
+
+        // --- RELIABLE HIGH-QUALITY PDF GENERATION ---
+        async function downloadPdfCertificate() {
+            playSound('click');
+            
+            const btn = document.getElementById('downloadPdfBtn');
+            const btnText = document.getElementById('downloadBtnText');
+            const studentName = document.getElementById('studentNameInput').value.trim() || 'Dedicated Crewmate';
+            const certDate = document.getElementById('certDate').textContent;
+
+            btnText.textContent = 'Generating PDF... ⏳';
+            btn.disabled = true;
+
+            const pdfContainer = document.createElement('div');
+            pdfContainer.style.position = 'fixed';
+            pdfContainer.style.left = '-9999px';
+            pdfContainer.style.top = '-9999px';
+            pdfContainer.style.width = '1122px';
+            pdfContainer.style.height = '794px';
+            pdfContainer.style.backgroundColor = '#ffffff';
+            pdfContainer.style.display = 'flex';
+            pdfContainer.style.alignItems = 'center';
+            pdfContainer.style.justifyContent = 'center';
+
+            pdfContainer.innerHTML = `
+                <div style="width: 1040px; height: 720px; background-color: #ffffff; color: #0f172a; border: 12px solid #eab308; padding: 40px; box-sizing: border-box; font-family: 'Cinzel', serif; display: flex; flex-direction: column; justify-content: space-between; align-items: center; text-align: center;">
+                    
+                    <div style="width: 100%; display: flex; flex-direction: column; align-items: center;">
+                        <div style="font-size: 44px; margin-bottom: 6px;">🚀</div>
+                        <h2 style="font-size: 38px; font-weight: 900; letter-spacing: 3px; text-transform: uppercase; color: #0f172a; margin: 0;">Certificate of Approval</h2>
+                        <div style="height: 5px; width: 140px; background-color: #eab308; margin: 10px 0;"></div>
+                        <p style="font-size: 13px; text-transform: uppercase; letter-spacing: 2px; color: #ca8a04; font-weight: bold; margin: 0;">Space Grammar Academy • Among Us Mission</p>
+                    </div>
+
+                    <div style="width: 100%; max-width: 800px; margin: 20px 0; display: flex; flex-direction: column; align-items: center;">
+                        <p style="font-size: 16px; color: #475569; margin: 0 0 10px 0; font-style: italic;">This official certificate is proudly presented to certified space traveler:</p>
+                        
+                        <div style="margin: 10px 0; width: 100%; text-align: center; font-size: 36px; font-weight: 900; color: #0f172a; border-bottom: 3px solid #eab308; padding-bottom: 6px;">
+                            ${studentName}
+                        </div>
+
+                        <p style="font-size: 15px; color: #334155; line-height: 1.6; text-align: center; margin: 18px 0 0 0; padding: 0 20px;">
+                            For successfully completing the 10-question challenge on <strong>Zero Conditional and First Conditional</strong> with excellence, proving mastery of spaceship grammar rules and defeating the impostors!
+                        </p>
+                    </div>
+
+                    <div style="width: 100%; display: flex; flex-direction: column; align-items: center;">
+                        <div style="display: flex; justify-content: space-between; align-items: flex-end; width: 100%; max-width: 800px; border-top: 2px solid #cbd5e1; padding-top: 16px; font-size: 14px;">
+                            <div style="text-align: center;">
+                                <p style="font-weight: bold; color: #0f172a; font-size: 15px; margin: 0;">${certDate}</p>
+                                <p style="color: #64748b; text-transform: uppercase; letter-spacing: 1px; font-size: 10px; margin: 3px 0 0 0;">Date of Mission</p>
+                            </div>
+                            <div style="font-size: 28px;">⭐🛸⭐</div>
+                            <div style="text-align: center;">
+                                <p style="font-weight: bold; color: #0f172a; font-size: 15px; margin: 0;">Commander AI</p>
+                                <p style="color: #64748b; text-transform: uppercase; letter-spacing: 1px; font-size: 10px; margin: 3px 0 0 0;">Grammar Control Unit</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            `;
+
+            document.body.appendChild(pdfContainer);
+
+            try {
+                if (window.html2canvas && window.jspdf) {
+                    const canvas = await html2canvas(pdfContainer, { scale: 2, useCORS: true, backgroundColor: '#ffffff' });
+                    const imgData = canvas.toDataURL('image/jpeg', 0.98);
+                    const { jsPDF } = window.jspdf;
+                    const pdf = new jsPDF({ orientation: 'landscape', unit: 'px', format: [1122, 794] });
+                    pdf.addImage(imgData, 'JPEG', 0, 0, 1122, 794);
+                    pdf.save(`AmongUs_Grammar_Certificate_${studentName.replace(/\s+/g, '_')}.pdf`);
+                } else {
+                    window.print();
+                }
+            } catch (err) {
+                console.error("PDF Export error:", err);
+                window.print();
+            } finally {
+                if (document.body.contains(pdfContainer)) {
+                    document.body.removeChild(pdfContainer);
+                }
+                btnText.textContent = 'Save Certificate (PDF) 📄';
+                btn.disabled = false;
+            }
+        }
+
+        function restartQuiz() {
+            playSound('click');
+            currentQuestionIndex = 0;
+            scoreHits = 0;
+            scoreMistakes = 0;
+            document.getElementById('scoreHits').textContent = '0';
+            document.getElementById('scoreMistakes').textContent = '0';
+            
+            document.getElementById('certificateUnlockArea').classList.add('hidden');
+            document.getElementById('quizSummaryCard').classList.add('hidden');
+            document.getElementById('quizActiveCard').classList.remove('hidden');
+
+            // Fully reshuffle questions and options every time the quiz is retried
+            prepareShuffledQuiz();
+
+            setAvatarExpression('normal');
+            updateAvatarDialog("Questions and options shuffled! Restarting the exam with a fresh order! 🚀");
+            loadQuestion();
+        }
+
+        // Window onload initialization
+        window.onload = function() {
+            updateAvatarDialog("Welcome to the spaceship! Select a tab to learn or jump into the Quiz. 🚀");
+            prepareShuffledQuiz();
+            loadQuestion();
+        };
+    </script>
+</body>
+</html>
