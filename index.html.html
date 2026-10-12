@@ -172,7 +172,7 @@
                 </div>
                 <div>
                     <h1 class="text-xl sm:text-2xl font-black title-font gradient-title animate-title-shimmer tracking-wide">
-                        Zero Conditional and First Conditional 🚀
+                        Zero & First Conditional 🚀
                     </h1>
                     <p class="text-xs font-bold text-slate-500 dark:text-slate-400">
                         Among Us Grammar Space Mission 🛸
@@ -222,9 +222,10 @@
             </button>
         </nav>
 
-        <div class="grid grid-cols-1 lg:grid-cols-4 gap-6 items-start">
+        <div id="mainLayoutContainer" class="grid grid-cols-1 lg:grid-cols-4 gap-6 items-start">
 
-            <div class="lg:col-span-1 bg-white dark:bg-slate-800 rounded-3xl p-5 border-4 border-slate-800 dark:border-cyan-400 shadow-[6px_6px_0px_#1e293b] flex flex-col items-center text-center lg:sticky lg:top-20 z-10 w-full box-border">
+            <!-- CREWMATE ASSISTANT PANEL (ONLY VISIBLE ON HOME TAB) -->
+            <div id="crewmateSidebar" class="lg:col-span-1 bg-white dark:bg-slate-800 rounded-3xl p-5 border-4 border-slate-800 dark:border-cyan-400 shadow-[6px_6px_0px_#1e293b] flex flex-col items-center text-center lg:sticky lg:top-20 z-10 w-full box-border">
                 <div class="text-xs font-black uppercase tracking-wider text-slate-500 dark:text-cyan-300 mb-2">
                     🤖 Crewmate Assistant
                 </div>
@@ -266,7 +267,8 @@
                 </div>
             </div>
 
-            <div class="lg:col-span-3 w-full box-border">
+            <!-- MAIN CONTENT AREA (EXPANDS TO FULL WIDTH WHEN SIDEBAR IS HIDDEN) -->
+            <div id="mainContentArea" class="lg:col-span-3 w-full box-border">
 
                 <!-- INTRO SECTION -->
                 <div id="section-intro" class="tab-content block space-y-6 w-full">
@@ -275,7 +277,7 @@
                             <span>🛰️</span> Grammar Mission: Conditionals!
                         </h2>
                         <p class="text-base sm:text-lg mb-4 leading-relaxed">
-                            Attention crewmate! 👩‍🚀👨‍🚀 To keep our spaceship running perfectly and catch the impostor, you must master English conditional sentences. Complete the lessons and pass the 10-question quiz to earn your official Spaceship Grammar Certificate! 🏆
+                            Attention crewmate! 👩‍🚀👨‍🚀 To keep our spaceship running perfectly and catch the impostor, you must master English conditional sentences. Complete the lessons, beat the mini-challenges, and pass the 10-question quiz to earn your official Spaceship Grammar Certificate! 🏆
                         </p>
                         
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
@@ -285,7 +287,7 @@
                                 </h3>
                                 <p class="text-sm">Used for <strong>real facts, scientific truths, or general routines</strong>. If A happens, B always happens.</p>
                                 <span class="inline-block mt-3 bg-teal-400 text-slate-900 font-bold text-xs px-2.5 py-1 rounded-full">
-                                    Ex: If you heat ice, it melts. 🧊
+                                    Ex: If you mix blue and yellow, you get green. 🎨
                                 </span>
                             </div>
 
@@ -295,7 +297,7 @@
                                 </h3>
                                 <p class="text-sm">Used for <strong>future possibilities or probable consequences</strong> in a specific situation.</p>
                                 <span class="inline-block mt-3 bg-yellow-400 text-slate-900 font-bold text-xs px-2.5 py-1 rounded-full">
-                                    Ex: If I finish tasks, I will win. 🏆
+                                    Ex: If the weather is clear, we will launch the rocket. 🚀
                                 </span>
                             </div>
                         </div>
@@ -346,13 +348,13 @@
                             <div class="bg-slate-50 dark:bg-slate-700/60 p-4 rounded-2xl border-2 border-slate-200 dark:border-slate-600 flex justify-between items-center gap-3 hover:border-teal-400 transition-colors">
                                 <div>
                                     <p class="font-black text-teal-600 dark:text-teal-300">
-                                        "If you press the emergency button, a meeting starts." 🚨
+                                        "If plants do not get enough sunlight, they die." 🌱
                                     </p>
                                     <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-300">
-                                        (General rule: pressing the button always triggers an emergency meeting.)
+                                        (General biological rule: lack of light causes plant death.)
                                     </p>
                                 </div>
-                                <button onclick="speakText('If you press the emergency button, a meeting starts.')" class="among-btn bg-teal-400 hover:bg-teal-300 p-2.5 rounded-xl text-black shrink-0">
+                                <button onclick="speakText('If plants do not get enough sunlight, they die.')" class="among-btn bg-teal-400 hover:bg-teal-300 p-2.5 rounded-xl text-black shrink-0">
                                     <i class="fas fa-volume-up"></i>
                                 </button>
                             </div>
@@ -360,13 +362,13 @@
                             <div class="bg-slate-50 dark:bg-slate-700/60 p-4 rounded-2xl border-2 border-slate-200 dark:border-slate-600 flex justify-between items-center gap-3 hover:border-teal-400 transition-colors">
                                 <div>
                                     <p class="font-black text-teal-600 dark:text-teal-300">
-                                        "If water reaches 100 degrees Celsius, it boils." ♨️
+                                        "If you mix blue and yellow paint, you get green." 🎨
                                     </p>
                                     <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-300">
-                                        (Scientific fact: water always boils at 100°C.)
+                                        (Color theory fact: combining blue and yellow always yields green.)
                                     </p>
                                 </div>
-                                <button onclick="speakText('If water reaches 100 degrees Celsius, it boils.')" class="among-btn bg-teal-400 hover:bg-teal-300 p-2.5 rounded-xl text-black shrink-0">
+                                <button onclick="speakText('If you mix blue and yellow paint, you get green.')" class="among-btn bg-teal-400 hover:bg-teal-300 p-2.5 rounded-xl text-black shrink-0">
                                     <i class="fas fa-volume-up"></i>
                                 </button>
                             </div>
@@ -374,16 +376,64 @@
                             <div class="bg-slate-50 dark:bg-slate-700/60 p-4 rounded-2xl border-2 border-slate-200 dark:border-slate-600 flex justify-between items-center gap-3 hover:border-teal-400 transition-colors">
                                 <div>
                                     <p class="font-black text-teal-600 dark:text-teal-300">
-                                        "If crewmates do not complete tasks, the team loses." ❌
+                                        "When people touch hot objects, they pull their hands away." 🔥
                                     </p>
                                     <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-300">
-                                        (Game mechanic: uncompleted tasks always result in defeat.)
+                                        (Reflex rule: heat always triggers an immediate reaction.)
                                     </p>
                                 </div>
-                                <button onclick="speakText('If crewmates do not complete tasks, the team loses.')" class="among-btn bg-teal-400 hover:bg-teal-300 p-2.5 rounded-xl text-black shrink-0">
+                                <button onclick="speakText('When people touch hot objects, they pull their hands away.')" class="among-btn bg-teal-400 hover:bg-teal-300 p-2.5 rounded-xl text-black shrink-0">
                                     <i class="fas fa-volume-up"></i>
                                 </button>
                             </div>
+                        </div>
+
+                        <!-- MINI-CHALLENGE 1: FULL SENTENCE BUILDER (ZERO CONDITIONAL) -->
+                        <div class="mt-8 bg-teal-50 dark:bg-slate-700/50 p-5 rounded-3xl border-4 border-teal-400 box-border">
+                            <div class="flex items-center justify-between mb-3">
+                                <h3 class="font-black text-lg text-teal-700 dark:text-teal-300 flex items-center gap-2">
+                                    <span>🧩</span> Mini-Challenge: Build the Zero Conditional Sentence!
+                                </h3>
+                                <button onclick="resetSentenceGame('zero')" class="text-xs font-bold bg-teal-200 dark:bg-slate-600 px-3 py-1.5 rounded-xl hover:bg-teal-300 among-btn">
+                                    🔄 New Sentence
+                                </button>
+                            </div>
+                            <p class="text-sm mb-4 text-slate-600 dark:text-slate-300">
+                                Click the phrase and word blocks in the correct order to construct the complete Zero Conditional sentence!
+                            </p>
+
+                            <div class="bg-white dark:bg-slate-800 p-4 rounded-2xl border-2 border-slate-800 dark:border-slate-600 text-center mb-4">
+                                <p class="text-xs font-bold text-slate-400 mb-1">Clue / Context: <span id="zeroSentenceClue" class="text-teal-600 dark:text-teal-300 font-black"></span></p>
+                                <div id="zeroSentenceTarget" class="flex flex-wrap justify-center gap-2 min-h-[60px] items-center my-2 p-2 bg-slate-100 dark:bg-slate-900/50 rounded-xl border border-dashed border-teal-400"></div>
+                            </div>
+
+                            <div id="zeroSentenceBank" class="flex flex-wrap justify-center gap-2 mb-3"></div>
+
+                            <div id="zeroSentenceFeedback" class="hidden font-bold text-center p-3 rounded-xl"></div>
+                        </div>
+
+                        <!-- MINI-CHALLENGE 2: ORGANIZA LA PALABRA (SCRAMBLED WORD GAME - ZERO CONDITIONAL) -->
+                        <div class="mt-8 bg-cyan-50 dark:bg-slate-700/50 p-5 rounded-3xl border-4 border-cyan-400 box-border">
+                            <div class="flex items-center justify-between mb-3">
+                                <h3 class="font-black text-lg text-cyan-700 dark:text-cyan-300 flex items-center gap-2">
+                                    <span>🔤</span> Organiza la Palabra: Zero Conditional Vocabulary
+                                </h3>
+                                <button onclick="resetWordGame('zero')" class="text-xs font-bold bg-cyan-200 dark:bg-slate-600 px-3 py-1.5 rounded-xl hover:bg-cyan-300 among-btn">
+                                    🔄 New Word
+                                </button>
+                            </div>
+                            <p class="text-sm mb-4 text-slate-600 dark:text-slate-300">
+                                Unscramble the letters to form a key word or concept related to Zero Conditional facts!
+                            </p>
+
+                            <div class="bg-white dark:bg-slate-800 p-4 rounded-2xl border-2 border-slate-800 dark:border-slate-600 text-center mb-4">
+                                <p class="text-xs font-bold text-slate-400 mb-1">Definition / Hint: <span id="zeroWordHint" class="text-cyan-600 dark:text-cyan-300 font-black"></span></p>
+                                <div id="zeroWordTarget" class="flex flex-wrap justify-center gap-2 min-h-[50px] items-center my-2 p-2 bg-slate-100 dark:bg-slate-900/50 rounded-xl border border-dashed border-cyan-400"></div>
+                            </div>
+
+                            <div id="zeroWordBank" class="flex flex-wrap justify-center gap-2 mb-3"></div>
+
+                            <div id="zeroWordFeedback" class="hidden font-bold text-center p-3 rounded-xl"></div>
                         </div>
 
                         <div class="mt-6 flex justify-between">
@@ -428,13 +478,13 @@
                             <div class="bg-slate-50 dark:bg-slate-700/60 p-4 rounded-2xl border-2 border-slate-200 dark:border-slate-600 flex justify-between items-center gap-3 hover:border-yellow-400 transition-colors">
                                 <div>
                                     <p class="font-black text-amber-600 dark:text-amber-300">
-                                        "If I find the impostor, I will report it immediately." 🔍
+                                        "If the weather is clear, we will launch the rocket." 🚀
                                     </p>
                                     <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-300">
-                                        (Probable future event and its specific consequence.)
+                                        (Probable future mission outcome dependent on atmospheric conditions.)
                                     </p>
                                 </div>
-                                <button onclick="speakText('If I find the impostor, I will report it immediately.')" class="among-btn bg-yellow-400 hover:bg-yellow-300 p-2.5 rounded-xl text-black shrink-0">
+                                <button onclick="speakText('If the weather is clear, we will launch the rocket.')" class="among-btn bg-yellow-400 hover:bg-yellow-300 p-2.5 rounded-xl text-black shrink-0">
                                     <i class="fas fa-volume-up"></i>
                                 </button>
                             </div>
@@ -442,13 +492,13 @@
                             <div class="bg-slate-50 dark:bg-slate-700/60 p-4 rounded-2xl border-2 border-slate-200 dark:border-slate-600 flex justify-between items-center gap-3 hover:border-yellow-400 transition-colors">
                                 <div>
                                     <p class="font-black text-amber-600 dark:text-amber-300">
-                                        "If you go to Electrical alone, the impostor will eliminate you." ⚡
+                                        "If you practice everyday, you will speak fluent English." 🗣️
                                     </p>
                                     <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-300">
-                                        (Future prediction based on a condition.)
+                                        (Future language skill achievement tied to daily effort.)
                                     </p>
                                 </div>
-                                <button onclick="speakText('If you go to Electrical alone, the impostor will eliminate you.')" class="among-btn bg-yellow-400 hover:bg-yellow-300 p-2.5 rounded-xl text-black shrink-0">
+                                <button onclick="speakText('If you practice everyday, you will speak fluent English.')" class="among-btn bg-yellow-400 hover:bg-yellow-300 p-2.5 rounded-xl text-black shrink-0">
                                     <i class="fas fa-volume-up"></i>
                                 </button>
                             </div>
@@ -456,16 +506,64 @@
                             <div class="bg-slate-50 dark:bg-slate-700/60 p-4 rounded-2xl border-2 border-slate-200 dark:border-slate-600 flex justify-between items-center gap-3 hover:border-yellow-400 transition-colors">
                                 <div>
                                     <p class="font-black text-amber-600 dark:text-amber-300">
-                                        "If we study grammar today, we will pass the spaceship exam." 🎓
+                                        "If we finish our lunch early, we will play another round." 🎮
                                     </p>
                                     <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-300">
-                                        (Future result dependent on today's action.)
+                                        (Future recreational plan contingent on timing.)
                                     </p>
                                 </div>
-                                <button onclick="speakText('If we study grammar today, we will pass the spaceship exam.')" class="among-btn bg-yellow-400 hover:bg-yellow-300 p-2.5 rounded-xl text-black shrink-0">
+                                <button onclick="speakText('If we finish our lunch early, we will play another round.')" class="among-btn bg-yellow-400 hover:bg-yellow-300 p-2.5 rounded-xl text-black shrink-0">
                                     <i class="fas fa-volume-up"></i>
                                 </button>
                             </div>
+                        </div>
+
+                        <!-- MINI-CHALLENGE 1: FULL SENTENCE BUILDER (FIRST CONDITIONAL) -->
+                        <div class="mt-8 bg-amber-50 dark:bg-slate-700/50 p-5 rounded-3xl border-4 border-amber-400 box-border">
+                            <div class="flex items-center justify-between mb-3">
+                                <h3 class="font-black text-lg text-amber-600 dark:text-amber-300 flex items-center gap-2">
+                                    <span>🧩</span> Mini-Challenge: Build the First Conditional Sentence!
+                                </h3>
+                                <button onclick="resetSentenceGame('first')" class="text-xs font-bold bg-amber-200 dark:bg-slate-600 px-3 py-1.5 rounded-xl hover:bg-amber-300 among-btn">
+                                    🔄 New Sentence
+                                </button>
+                            </div>
+                            <p class="text-sm mb-4 text-slate-600 dark:text-slate-300">
+                                Click the phrase and word blocks in the correct order to construct the complete First Conditional sentence!
+                            </p>
+
+                            <div class="bg-white dark:bg-slate-800 p-4 rounded-2xl border-2 border-slate-800 dark:border-slate-600 text-center mb-4">
+                                <p class="text-xs font-bold text-slate-400 mb-1">Clue / Context: <span id="firstSentenceClue" class="text-amber-600 dark:text-amber-300 font-black"></span></p>
+                                <div id="firstSentenceTarget" class="flex flex-wrap justify-center gap-2 min-h-[60px] items-center my-2 p-2 bg-slate-100 dark:bg-slate-900/50 rounded-xl border border-dashed border-amber-400"></div>
+                            </div>
+
+                            <div id="firstSentenceBank" class="flex flex-wrap justify-center gap-2 mb-3"></div>
+
+                            <div id="firstSentenceFeedback" class="hidden font-bold text-center p-3 rounded-xl"></div>
+                        </div>
+
+                        <!-- MINI-CHALLENGE 2: ORGANIZA LA PALABRA (SCRAMBLED WORD GAME - FIRST CONDITIONAL) -->
+                        <div class="mt-8 bg-yellow-50 dark:bg-slate-700/50 p-5 rounded-3xl border-4 border-yellow-400 box-border">
+                            <div class="flex items-center justify-between mb-3">
+                                <h3 class="font-black text-lg text-yellow-700 dark:text-yellow-300 flex items-center gap-2">
+                                    <span>🔤</span> Organiza la Palabra: First Conditional Vocabulary
+                                </h3>
+                                <button onclick="resetWordGame('first')" class="text-xs font-bold bg-yellow-200 dark:bg-slate-600 px-3 py-1.5 rounded-xl hover:bg-yellow-300 among-btn">
+                                    🔄 New Word
+                                </button>
+                            </div>
+                            <p class="text-sm mb-4 text-slate-600 dark:text-slate-300">
+                                Unscramble the letters to form a key term or future action related to First Conditional scenarios!
+                            </p>
+
+                            <div class="bg-white dark:bg-slate-800 p-4 rounded-2xl border-2 border-slate-800 dark:border-slate-600 text-center mb-4">
+                                <p class="text-xs font-bold text-slate-400 mb-1">Definition / Hint: <span id="firstWordHint" class="text-yellow-600 dark:text-yellow-300 font-black"></span></p>
+                                <div id="firstWordTarget" class="flex flex-wrap justify-center gap-2 min-h-[50px] items-center my-2 p-2 bg-slate-100 dark:bg-slate-900/50 rounded-xl border border-dashed border-yellow-400"></div>
+                            </div>
+
+                            <div id="firstWordBank" class="flex flex-wrap justify-center gap-2 mb-3"></div>
+
+                            <div id="firstWordFeedback" class="hidden font-bold text-center p-3 rounded-xl"></div>
                         </div>
 
                         <div class="mt-6 flex justify-between">
@@ -637,10 +735,151 @@
     </div>
 
     <footer class="bg-white dark:bg-slate-900 border-t-4 border-slate-800 dark:border-slate-700 py-4 text-center text-xs font-bold text-slate-500 dark:text-slate-400 mt-8">
-        <p>🚀 Zero Conditional and First Conditional • Learn English Among Us Style 🛸</p>
+        <p>🚀 Zero & First Conditional • Learn English Among Us Style 🛸</p>
     </footer>
 
     <script>
+        // --- WEB AUDIO API SYNTHESIZER ---
+        let audioCtx = null;
+        function getAudioContext() {
+            if (!audioCtx) {
+                audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+            }
+            if (audioCtx.state === 'suspended') {
+                audioCtx.resume();
+            }
+            return audioCtx;
+        }
+
+        function playSound(type) {
+            try {
+                const ctx = getAudioContext();
+                const osc = ctx.createOscillator();
+                const gain = ctx.createGain();
+                osc.connect(gain);
+                gain.connect(ctx.destination);
+
+                const now = ctx.currentTime;
+
+                if (type === 'click') {
+                    osc.type = 'sine';
+                    osc.frequency.setValueAtTime(400, now);
+                    osc.frequency.exponentialRampToValueAtTime(800, now + 0.05);
+                    gain.gain.setValueAtTime(0.1, now);
+                    gain.gain.exponentialRampToValueAtTime(0.01, now + 0.05);
+                    osc.start(now);
+                    osc.stop(now + 0.05);
+                } else if (type === 'correct') {
+                    osc.type = 'triangle';
+                    osc.frequency.setValueAtTime(523.25, now); // C5
+                    osc.frequency.setValueAtTime(659.25, now + 0.08); // E5
+                    osc.frequency.setValueAtTime(783.99, now + 0.16); // G5
+                    gain.gain.setValueAtTime(0.15, now);
+                    gain.gain.exponentialRampToValueAtTime(0.01, now + 0.3);
+                    osc.start(now);
+                    osc.stop(now + 0.3);
+                } else if (type === 'wrong') {
+                    osc.type = 'sawtooth';
+                    osc.frequency.setValueAtTime(180, now);
+                    osc.frequency.exponentialRampToValueAtTime(120, now + 0.2);
+                    gain.gain.setValueAtTime(0.15, now);
+                    gain.gain.exponentialRampToValueAtTime(0.01, now + 0.25);
+                    osc.start(now);
+                    osc.stop(now + 0.25);
+                }
+            } catch (e) {
+                console.log("Audio not allowed yet", e);
+            }
+        }
+
+        // --- SPEECH SYNTHESIS API (TTS) ---
+        let audioEnabled = true;
+
+        function toggleAudio() {
+            audioEnabled = !audioEnabled;
+            const btn = document.getElementById('ttsToggleBtn');
+            const status = document.getElementById('ttsStatus');
+            const icon = document.getElementById('ttsIcon');
+
+            if (audioEnabled) {
+                status.textContent = 'Voice: ON 🔊';
+                icon.className = 'fas fa-volume-up';
+                btn.className = 'among-btn bg-yellow-400 hover:bg-yellow-300 text-slate-900 px-3 py-2 rounded-xl font-bold flex items-center space-x-2 text-sm';
+            } else {
+                status.textContent = 'Voice: OFF 🔇';
+                icon.className = 'fas fa-volume-mute';
+                btn.className = 'among-btn bg-slate-400 text-slate-900 px-3 py-2 rounded-xl font-bold flex items-center space-x-2 text-sm';
+                if ('speechSynthesis' in window) {
+                    window.speechSynthesis.cancel();
+                }
+            }
+        }
+
+        function speakText(text) {
+            if (!audioEnabled || !('speechSynthesis' in window)) return;
+            window.speechSynthesis.cancel();
+            
+            const cleanText = text.replace(/[🚀🛸🏆⭐👨‍🚀👩‍🚀🧪⚡🎮📌📢💡❌✅🔥🌧️😴♨️🔍🎨🌱🗣️🔤]/g, '');
+            const utterance = new SpeechSynthesisUtterance(cleanText);
+            utterance.rate = 0.95;
+            utterance.pitch = 1.05;
+            utterance.lang = 'en-US';
+
+            const voices = window.speechSynthesis.getVoices();
+            const preferredVoice = voices.find(v => v.lang === 'en-US' && (v.name.includes('Google') || v.name.includes('Samantha') || v.name.includes('Natural')));
+            if (preferredVoice) {
+                utterance.voice = preferredVoice;
+            }
+
+            window.speechSynthesis.speak(utterance);
+        }
+
+        // --- THEME SWITCHING ---
+        function toggleThemeMenu() {
+            const menu = document.getElementById('themeMenu');
+            menu.classList.toggle('hidden');
+        }
+
+        function setTheme(mode) {
+            playSound('click');
+            const root = document.documentElement;
+            const icon = document.getElementById('themeCurrentIcon');
+            const text = document.getElementById('themeCurrentText');
+            const menu = document.getElementById('themeMenu');
+            menu.classList.add('hidden');
+
+            if (mode === 'dark') {
+                root.classList.add('dark');
+                icon.textContent = '🌙';
+                text.textContent = 'Dark Mode';
+                localStorage.setItem('among_grammar_theme', 'dark');
+            } else {
+                root.classList.remove('dark');
+                icon.textContent = '☀️';
+                text.textContent = 'Light Mode';
+                localStorage.setItem('among_grammar_theme', 'light');
+            }
+        }
+
+        // --- UTILITY: FISHER-YATES SHUFFLE ---
+        function shuffleArray(array) {
+            let currentIndex = array.length, randomIndex;
+            while (currentIndex !== 0) {
+                randomIndex = Math.floor(Math.random() * currentIndex);
+                currentIndex--;
+                [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
+            }
+            return array;
+        }
+
+        function prepareShuffledQuiz() {
+            activeQuizQuestions = JSON.parse(JSON.stringify(masterQuestions));
+            shuffleArray(activeQuizQuestions);
+            activeQuizQuestions.forEach(q => {
+                shuffleArray(q.options);
+            });
+        }
+
         // --- DATA STRUCTURES: QUIZ QUESTIONS ---
         const masterQuestions = [
             {
@@ -761,158 +1000,298 @@
         let scoreMistakes = 0;
         let questionAnswered = false;
 
-        // Shuffle helper function (Fisher-Yates)
-        function shuffleArray(array) {
-            const arr = [...array];
-            for (let i = arr.length - 1; i > 0; i--) {
-                const j = Math.floor(Math.random() * (i + 1));
-                [arr[i], arr[j]] = [arr[j], arr[i]];
+        // --- FULL SENTENCE BUILDER GAME DATA ---
+        const sentenceBankZero = [
+            { 
+                sentence: "If plants do not get enough sunlight, they die.", 
+                clue: "General botanical rule about sunlight and plants", 
+                blocks: ["If plants", "do not get enough sunlight,", "they die."] 
+            },
+            { 
+                sentence: "If you mix blue and yellow paint, you get green.", 
+                clue: "Color theory fact combining primary colors", 
+                blocks: ["If you mix", "blue and yellow paint,", "you get green."] 
+            },
+            { 
+                sentence: "When people touch hot objects, they pull their hands away.", 
+                clue: "Human reflex reaction to extreme heat", 
+                blocks: ["When people touch", "hot objects,", "they pull their hands away."] 
+            },
+            { 
+                sentence: "If oil mixes with water, it floats.", 
+                clue: "Density property of oil and water", 
+                blocks: ["If oil", "mixes with water,", "it floats."] 
             }
-            return arr;
+        ];
+
+        const sentenceBankFirst = [
+            { 
+                sentence: "If the weather is clear, we will launch the rocket.", 
+                clue: "Space mission conditions for takeoff", 
+                blocks: ["If the weather is clear,", "we will", "launch the rocket."] 
+            },
+            { 
+                sentence: "If you practice everyday, you will speak fluent English.", 
+                clue: "Result of consistent language learning habits", 
+                blocks: ["If you practice everyday,", "you will", "speak fluent English."] 
+            },
+            { 
+                sentence: "If we finish our lunch early, we will play another round.", 
+                clue: "Recreational plan dependent on meal schedule", 
+                blocks: ["If we finish our lunch early,", "we will", "play another round."] 
+            },
+            { 
+                sentence: "If you share your snacks, your friends will be happy.", 
+                clue: "Social outcome of sharing food", 
+                blocks: ["If you share your snacks,", "your friends", "will be happy."] 
+            }
+        ];
+
+        let currentZeroSentencePuzzle = null;
+        let currentFirstSentencePuzzle = null;
+
+        function initSentenceGames() {
+            resetSentenceGame('zero');
+            resetSentenceGame('first');
         }
 
-        function prepareShuffledQuiz() {
-            // Shuffle both questions order and option choices order
-            activeQuizQuestions = shuffleArray(masterQuestions).map(q => {
-                return {
-                    ...q,
-                    options: shuffleArray(q.options)
+        function resetSentenceGame(type) {
+            playSound('click');
+            if (type === 'zero') {
+                const item = sentenceBankZero[Math.floor(Math.random() * sentenceBankZero.length)];
+                currentZeroSentencePuzzle = {
+                    sentence: item.sentence,
+                    clue: item.clue,
+                    target: [...item.blocks],
+                    current: [],
+                    bank: shuffleArray([...item.blocks])
                 };
+                renderSentenceUI('zero');
+            } else {
+                const item = sentenceBankFirst[Math.floor(Math.random() * sentenceBankFirst.length)];
+                currentFirstSentencePuzzle = {
+                    sentence: item.sentence,
+                    clue: item.clue,
+                    target: [...item.blocks],
+                    current: [],
+                    bank: shuffleArray([...item.blocks])
+                };
+                renderSentenceUI('first');
+            }
+        }
+
+        function renderSentenceUI(type) {
+            const pz = type === 'zero' ? currentZeroSentencePuzzle : currentFirstSentencePuzzle;
+            const clueEl = document.getElementById(type + 'SentenceClue');
+            const targetEl = document.getElementById(type + 'SentenceTarget');
+            const bankEl = document.getElementById(type + 'SentenceBank');
+            const feedbackEl = document.getElementById(type + 'SentenceFeedback');
+
+            if (!clueEl || !targetEl || !bankEl || !feedbackEl) return;
+
+            clueEl.textContent = pz.clue;
+            feedbackEl.classList.add('hidden');
+            feedbackEl.textContent = '';
+
+            targetEl.innerHTML = '';
+            pz.current.forEach((blockText, idx) => {
+                const btn = document.createElement('button');
+                btn.className = 'px-3 py-2 rounded-xl bg-teal-500 text-white font-black text-sm sm:text-base among-btn flex items-center justify-center';
+                btn.textContent = blockText;
+                btn.onclick = () => removeSentenceBlock(type, idx);
+                targetEl.appendChild(btn);
+            });
+
+            if (pz.current.length === 0) {
+                targetEl.innerHTML = '<span class="text-xs text-slate-400 italic">Click phrase blocks below to build your sentence</span>';
+            }
+
+            bankEl.innerHTML = '';
+            pz.bank.forEach((blockText, idx) => {
+                const btn = document.createElement('button');
+                btn.className = 'px-3 py-2 rounded-xl bg-white dark:bg-slate-700 text-slate-800 dark:text-white font-black text-sm sm:text-base among-btn flex items-center justify-center';
+                btn.textContent = blockText;
+                btn.onclick = () => pickSentenceBlock(type, idx);
+                bankEl.appendChild(btn);
             });
         }
 
-        // --- AUDIO SOUND EFFECTS ENGINE ---
-        let audioCtx = null;
-        let ttsEnabled = true;
+        function pickSentenceBlock(type, bankIdx) {
+            playSound('click');
+            const pz = type === 'zero' ? currentZeroSentencePuzzle : currentFirstSentencePuzzle;
+            const blockText = pz.bank.splice(bankIdx, 1)[0];
+            pz.current.push(blockText);
+            renderSentenceUI(type);
 
-        function initAudio() {
-            if (!audioCtx) {
-                const AudioContextClass = window.AudioContext || window.webkitAudioContext;
-                if (AudioContextClass) {
-                    audioCtx = new AudioContextClass();
+            if (pz.current.length === pz.target.length) {
+                checkSentenceCompletion(type);
+            }
+        }
+
+        function removeSentenceBlock(type, targetIdx) {
+            playSound('click');
+            const pz = type === 'zero' ? currentZeroSentencePuzzle : currentFirstSentencePuzzle;
+            const blockText = pz.current.splice(targetIdx, 1)[0];
+            pz.bank.push(blockText);
+            renderSentenceUI(type);
+        }
+
+        function checkSentenceCompletion(type) {
+            const pz = type === 'zero' ? currentZeroSentencePuzzle : currentFirstSentencePuzzle;
+            const formed = pz.current.join(' ');
+            const feedbackEl = document.getElementById(type + 'SentenceFeedback');
+
+            feedbackEl.classList.remove('hidden');
+            if (formed === pz.sentence) {
+                playSound('correct');
+                feedbackEl.className = 'font-bold text-center p-3 rounded-xl bg-emerald-100 dark:bg-emerald-900/50 text-emerald-800 dark:text-emerald-200 border-2 border-emerald-500';
+                feedbackEl.innerHTML = '🎉 Excellent! Perfect sentence constructed! 🚀';
+                speakText('Correct! ' + pz.sentence);
+            } else {
+                playSound('wrong');
+                feedbackEl.className = 'font-bold text-center p-3 rounded-xl bg-red-100 dark:bg-red-900/50 text-red-800 dark:text-red-200 border-2 border-red-500';
+                feedbackEl.innerHTML = '❌ Order is incorrect. Try rearranging the blocks!';
+            }
+        }
+
+        // --- "ORGANIZA LA PALABRA" (SCRAMBLED WORD GAME DATA & LOGIC) ---
+        const wordBankZero = [
+            { word: "MELTS", hint: "What ice does when you heat it (Present Simple)" },
+            { word: "BOILS", hint: "What water does when it reaches 100°C" },
+            { word: "FREEZES", hint: "What water does when temperature drops below 0°C" },
+            { word: "FLOATS", hint: "What oil does when it mixes with water" },
+            { word: "EXPANDS", hint: "What metal does when it gets hot" }
+        ];
+
+        const wordBankFirst = [
+            { word: "LAUNCH", hint: "What we will do with the rocket if weather is clear" },
+            { word: "PRACTICE", hint: "If you do this everyday, you will speak fluent English" },
+            { word: "TRIGGER", hint: "What you will do to the alarm if you see the impostor" },
+            { word: "WIN", hint: "What our crew will do if we finish all tasks" },
+            { word: "SURVIVE", hint: "If we work together, we will ___ the spaceship round" }
+        ];
+
+        let currentZeroWordPuzzle = null;
+        let currentFirstWordPuzzle = null;
+
+        function initWordGames() {
+            resetWordGame('zero');
+            resetWordGame('first');
+        }
+
+        function resetWordGame(type) {
+            playSound('click');
+            const source = type === 'zero' ? wordBankZero : wordBankFirst;
+            const item = source[Math.floor(Math.random() * source.length)];
+            const letters = item.word.split('');
+
+            const puzzle = {
+                word: item.word,
+                hint: item.hint,
+                target: Array(letters.length).fill(null),
+                currentLetters: shuffleArray([...letters]).map((char, index) => ({ id: index, char: char, used: false }))
+            };
+
+            if (type === 'zero') {
+                currentZeroWordPuzzle = puzzle;
+            } else {
+                currentFirstWordPuzzle = puzzle;
+            }
+            renderWordUI(type);
+        }
+
+        function renderWordUI(type) {
+            const pz = type === 'zero' ? currentZeroWordPuzzle : currentFirstWordPuzzle;
+            const hintEl = document.getElementById(type + 'WordHint');
+            const targetEl = document.getElementById(type + 'WordTarget');
+            const bankEl = document.getElementById(type + 'WordBank');
+            const feedbackEl = document.getElementById(type + 'WordFeedback');
+
+            if (!hintEl || !targetEl || !bankEl || !feedbackEl) return;
+
+            hintEl.textContent = pz.hint;
+            feedbackEl.classList.add('hidden');
+            feedbackEl.textContent = '';
+
+            targetEl.innerHTML = '';
+            pz.target.forEach((item, idx) => {
+                const btn = document.createElement('button');
+                btn.className = 'w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-teal-500 text-white font-black text-lg sm:text-xl among-btn flex items-center justify-center';
+                if (item) {
+                    btn.textContent = item.char;
+                    btn.onclick = () => removeWordLetter(type, idx);
+                } else {
+                    btn.className = 'w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-slate-200 dark:bg-slate-900 text-slate-400 border-2 border-dashed border-teal-400 flex items-center justify-center';
+                    btn.textContent = '_';
+                }
+                targetEl.appendChild(btn);
+            });
+
+            bankEl.innerHTML = '';
+            pz.currentLetters.forEach((item, idx) => {
+                const btn = document.createElement('button');
+                if (item.used) {
+                    btn.className = 'w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-slate-300 dark:bg-slate-800 text-slate-400 font-black text-lg sm:text-xl opacity-30 cursor-not-allowed flex items-center justify-center';
+                    btn.disabled = true;
+                } else {
+                    btn.className = 'w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-white dark:bg-slate-700 text-slate-800 dark:text-white font-black text-lg sm:text-xl among-btn flex items-center justify-center';
+                    btn.onclick = () => pickWordLetter(type, idx);
+                }
+                btn.textContent = item.char;
+                bankEl.appendChild(btn);
+            });
+        }
+
+        function pickWordLetter(type, bankIdx) {
+            playSound('click');
+            const pz = type === 'zero' ? currentZeroWordPuzzle : currentFirstWordPuzzle;
+            const letterObj = pz.currentLetters[bankIdx];
+            if (letterObj.used) return;
+
+            // Find first empty slot in target
+            const emptySlotIdx = pz.target.findIndex(slot => slot === null);
+            if (emptySlotIdx !== -1) {
+                letterObj.used = true;
+                pz.target[emptySlotIdx] = { char: letterObj.char, bankIndex: bankIdx };
+                renderWordUI(type);
+
+                // Check if target is full
+                if (pz.target.every(slot => slot !== null)) {
+                    checkWordCompletion(type);
                 }
             }
-            if (audioCtx && audioCtx.state === 'suspended') {
-                audioCtx.resume();
-            }
         }
 
-        function playSound(type) {
-            try {
-                initAudio();
-                if (!audioCtx) return;
-
-                const osc = audioCtx.createOscillator();
-                const gain = audioCtx.createGain();
-                osc.connect(gain);
-                gain.connect(audioCtx.destination);
-
-                const now = audioCtx.currentTime;
-
-                if (type === 'click') {
-                    osc.type = 'sine';
-                    osc.frequency.setValueAtTime(400, now);
-                    osc.frequency.exponentialRampToValueAtTime(800, now + 0.05);
-                    gain.gain.setValueAtTime(0.1, now);
-                    gain.gain.linearRampToValueAtTime(0.01, now + 0.05);
-                    osc.start(now);
-                    osc.stop(now + 0.05);
-                } else if (type === 'correct') {
-                    osc.type = 'triangle';
-                    osc.frequency.setValueAtTime(523.25, now);
-                    osc.frequency.setValueAtTime(659.25, now + 0.08);
-                    osc.frequency.setValueAtTime(783.99, now + 0.16);
-                    osc.frequency.setValueAtTime(1046.50, now + 0.24);
-                    gain.gain.setValueAtTime(0.15, now);
-                    gain.gain.linearRampToValueAtTime(0.01, now + 0.4);
-                    osc.start(now);
-                    osc.stop(now + 0.4);
-                } else if (type === 'wrong') {
-                    osc.type = 'sawtooth';
-                    osc.frequency.setValueAtTime(180, now);
-                    osc.frequency.setValueAtTime(140, now + 0.15);
-                    gain.gain.setValueAtTime(0.2, now);
-                    gain.gain.linearRampToValueAtTime(0.01, now + 0.35);
-                    osc.start(now);
-                    osc.stop(now + 0.35);
-                } else if (type === 'theme') {
-                    osc.type = 'sine';
-                    osc.frequency.setValueAtTime(300, now);
-                    osc.frequency.exponentialRampToValueAtTime(600, now + 0.1);
-                    gain.gain.setValueAtTime(0.08, now);
-                    gain.gain.linearRampToValueAtTime(0.01, now + 0.1);
-                    osc.start(now);
-                    osc.stop(now + 0.1);
-                }
-            } catch (e) {
-                console.log("Audio play error", e);
-            }
-        }
-
-        // --- SPEECH SYNTHESIS ENGINE (TTS) ---
-        function speakText(text) {
-            if (!ttsEnabled) return;
-            if ('speechSynthesis' in window) {
-                window.speechSynthesis.cancel();
-                const cleanText = text.replace(/[\u{1F600}-\u{1F64F}\u{1F300}-\u{1F5FF}\u{1F680}-\u{1F6FF}\u{2600}-\u{26FF}\u{2700}-\u{27BF}]/gu, '');
-                const utterance = new SpeechSynthesisUtterance(cleanText);
-                utterance.lang = 'en-US';
-                utterance.rate = 0.95;
-                utterance.pitch = 1.05;
-
-                const voices = window.speechSynthesis.getVoices();
-                const engVoice = voices.find(v => v.lang.includes('en') && (v.name.includes('Natural') || v.name.includes('Google') || v.name.includes('Samantha')));
-                if (engVoice) utterance.voice = engVoice;
-
-                window.speechSynthesis.speak(utterance);
-            }
-        }
-
-        function toggleAudio() {
-            ttsEnabled = !ttsEnabled;
-            const statusSpan = document.getElementById('ttsStatus');
-            const icon = document.getElementById('ttsIcon');
-            
-            if (ttsEnabled) {
-                statusSpan.textContent = 'Voice: ON 🔊';
-                icon.className = 'fas fa-volume-up';
-                speakText('Voice synthesis activated.');
-            } else {
-                statusSpan.textContent = 'Voice: OFF 🔇';
-                icon.className = 'fas fa-volume-mute';
-                if ('speechSynthesis' in window) window.speechSynthesis.cancel();
-            }
+        function removeWordLetter(type, targetIdx) {
             playSound('click');
+            const pz = type === 'zero' ? currentZeroWordPuzzle : currentFirstWordPuzzle;
+            const slotItem = pz.target[targetIdx];
+            if (!slotItem) return;
+
+            pz.currentLetters[slotItem.bankIndex].used = false;
+            pz.target[targetIdx] = null;
+            renderWordUI(type);
         }
 
-        // --- THEME SWITCHER (LIGHT / DARK MODE) ---
-        function toggleThemeMenu() {
-            playSound('click');
-            const menu = document.getElementById('themeMenu');
-            menu.classList.toggle('hidden');
-        }
+        function checkWordCompletion(type) {
+            const pz = type === 'zero' ? currentZeroWordPuzzle : currentFirstWordPuzzle;
+            const formedWord = pz.target.map(slot => slot.char).join('');
+            const feedbackEl = document.getElementById(type + 'WordFeedback');
 
-        function setTheme(mode) {
-            playSound('theme');
-            const html = document.documentElement;
-            const currentIcon = document.getElementById('themeCurrentIcon');
-            const currentText = document.getElementById('themeCurrentText');
-            document.getElementById('themeMenu').classList.add('hidden');
-
-            if (mode === 'dark') {
-                html.classList.add('dark');
-                html.classList.remove('light');
-                currentIcon.textContent = '🌙';
-                currentText.textContent = 'Dark Mode';
+            feedbackEl.classList.remove('hidden');
+            if (formedWord === pz.word) {
+                playSound('correct');
+                feedbackEl.className = 'font-bold text-center p-3 rounded-xl bg-emerald-100 dark:bg-emerald-900/50 text-emerald-800 dark:text-emerald-200 border-2 border-emerald-500';
+                feedbackEl.innerHTML = `🎉 Correct! The word is <span class="uppercase tracking-widest">${pz.word}</span>! 🚀`;
+                speakText('Correct! ' + pz.word);
             } else {
-                html.classList.remove('dark');
-                html.classList.add('light');
-                currentIcon.textContent = '☀️';
-                currentText.textContent = 'Light Mode';
+                playSound('wrong');
+                feedbackEl.className = 'font-bold text-center p-3 rounded-xl bg-red-100 dark:bg-red-900/50 text-red-800 dark:text-red-200 border-2 border-red-500';
+                feedbackEl.innerHTML = '❌ Incorrect spelling. Try again or reset letters!';
             }
         }
 
-        // --- NAVIGATION TABS ---
+        // --- NAVIGATION TABS & CONDITIONAL SIDEBAR VISIBILITY ---
         function switchTab(tabId) {
             playSound('click');
             document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
@@ -933,18 +1312,24 @@
                 if (tabId === 'quiz') activeBtn.classList.add('bg-red-500', 'text-white');
             }
 
+            // CRITICAL REQUIREMENT: Crewmate Assistant ONLY visible on Home (intro) tab
+            const crewmateSidebar = document.getElementById('crewmateSidebar');
+            const mainContentArea = document.getElementById('mainContentArea');
+
             if (tabId === 'intro') {
+                crewmateSidebar.classList.remove('hidden');
+                mainContentArea.className = 'lg:col-span-3 w-full box-border';
                 setAvatarExpression('normal');
                 updateAvatarDialog("Welcome! Click any tab to learn or take the 10-question quiz! 🚀");
-            } else if (tabId === 'zero') {
+            } else {
+                crewmateSidebar.classList.add('hidden');
+                mainContentArea.className = 'lg:col-span-4 w-full box-border';
+            }
+
+            if (tabId === 'zero') {
                 setAvatarExpression('happy');
-                updateAvatarDialog("Zero Conditional: Used for facts that are ALWAYS true! 🧪");
             } else if (tabId === 'first') {
                 setAvatarExpression('happy');
-                updateAvatarDialog("First Conditional: Used for future possibilities! ⚡");
-            } else if (tabId === 'quiz') {
-                setAvatarExpression('normal');
-                updateAvatarDialog("Good luck on the quiz! Select the correct option for each question. 🎮");
             }
         }
 
@@ -974,8 +1359,10 @@
 
         function changeCrewColor(hex) {
             playSound('click');
-            document.getElementById('crewBody').setAttribute('fill', hex);
-            document.getElementById('crewBackpack').setAttribute('fill', hex);
+            const body = document.getElementById('crewBody');
+            const backpack = document.getElementById('crewBackpack');
+            if (body) body.setAttribute('fill', hex);
+            if (backpack) backpack.setAttribute('fill', hex);
             const nameEl = document.getElementById('avatarName');
             
             if (crewmateColors[hex]) {
@@ -1033,15 +1420,12 @@
             document.getElementById('questionNumBadge').textContent = `Question ${currentQuestionIndex + 1} / 10`;
             document.getElementById('questionText').textContent = q.question;
 
-            // Progress bar
             const pct = ((currentQuestionIndex + 1) / 10) * 100;
             document.getElementById('quizProgressBar').style.width = pct + '%';
 
-            // Hide feedback and next button
             document.getElementById('feedbackBox').classList.add('hidden');
             document.getElementById('nextQuestionBtn').classList.add('hidden');
 
-            // Render options
             const container = document.getElementById('optionsContainer');
             container.innerHTML = '';
 
@@ -1098,8 +1482,6 @@
                 feedbackTitle.innerHTML = '<span>✅ Correct Crewmate!</span>';
                 feedbackText.textContent = q.explanation;
 
-                setAvatarExpression('happy');
-                updateAvatarDialog("Great job! Correct answer! 🚀");
                 speakText("Correct! " + q.explanation);
             } else {
                 playSound('wrong');
@@ -1110,7 +1492,6 @@
                 selectedBtn.classList.add('bg-red-400', 'text-slate-900', 'border-red-700');
                 selectedBtn.querySelector('.opt-icon').className = 'fas fa-times-circle text-slate-900 text-2xl';
 
-                // Highlight actual correct button
                 q.options.forEach((opt, idx) => {
                     if (opt.correct) {
                         allOptionBtns[idx].classList.remove('opacity-70');
@@ -1122,8 +1503,6 @@
                 feedbackTitle.innerHTML = '<span>❌ Impostor Sabotage!</span>';
                 feedbackText.textContent = q.explanation;
 
-                setAvatarExpression('sad');
-                updateAvatarDialog("Oops! That was incorrect. Read the explanation carefully.");
                 speakText("Incorrect. " + q.explanation);
             }
 
@@ -1145,10 +1524,8 @@
             }
         }
 
-        // --- COLORFUL CONFETTI FIREWORKS TRIGGER ---
         function triggerSuccessConfetti() {
             if (typeof confetti === 'function') {
-                // Multi-burst fireworks celebration
                 const duration = 3 * 1000;
                 const animationEnd = Date.now() + duration;
                 const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 9999 };
@@ -1187,10 +1564,6 @@
                 summaryTitle.textContent = 'Mission Victory!';
                 summaryMessage.textContent = `Outstanding performance! You scored ${scoreHits}/10. You have proven complete mastery of Zero and First Conditionals!`;
                 certUnlock.classList.remove('hidden');
-                setAvatarExpression('happy');
-                updateAvatarDialog("Congratulations! You passed the mission! Get your Certificate! 📜");
-                
-                // Trigger colorful confetti fireworks!
                 triggerSuccessConfetti();
             } else {
                 playSound('wrong');
@@ -1198,12 +1571,9 @@
                 summaryTitle.textContent = 'Defeat - Impostor Win!';
                 summaryMessage.textContent = `You scored ${scoreHits}/10. You need at least 8 correct answers to pass the spaceship grammar exam. Try again!`;
                 certUnlock.classList.add('hidden');
-                setAvatarExpression('impostor');
-                updateAvatarDialog("The impostor sabotaged the test! Review the rules and try again!");
             }
         }
 
-        // --- CERTIFICATE GENERATION & PRINT / PDF DOWNLOAD ---
         function openCertificate() {
             playSound('click');
             const dateStr = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
@@ -1216,7 +1586,6 @@
             document.getElementById('certificateModal').classList.add('hidden');
         }
 
-        // --- RELIABLE HIGH-QUALITY PDF GENERATION ---
         async function downloadPdfCertificate() {
             playSound('click');
             
@@ -1315,19 +1684,16 @@
             document.getElementById('quizSummaryCard').classList.add('hidden');
             document.getElementById('quizActiveCard').classList.remove('hidden');
 
-            // Fully reshuffle questions and options every time the quiz is retried
             prepareShuffledQuiz();
-
-            setAvatarExpression('normal');
-            updateAvatarDialog("Questions and options shuffled! Restarting the exam with a fresh order! 🚀");
             loadQuestion();
         }
 
-        // Window onload initialization
         window.onload = function() {
             updateAvatarDialog("Welcome to the spaceship! Select a tab to learn or jump into the Quiz. 🚀");
             prepareShuffledQuiz();
             loadQuestion();
+            initSentenceGames();
+            initWordGames();
         };
     </script>
 </body>
